@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class ScreenTitle extends StatelessWidget {
+class screenTitle extends StatelessWidget {
   final String text;
   
-   const ScreenTitle({
+   const screenTitle({
     super.key,
     required this.text,
   });
