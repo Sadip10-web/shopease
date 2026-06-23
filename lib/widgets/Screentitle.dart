@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 class Screen_title extends StatelessWidget {
   final String text;
   
-   Screen_title({
+   const ScreenTitle({
     super.key,
     required this.text,
   });
