@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class FillupWidget extends StatelessWidget {
-  String placeHolder;
-  IconData icon;
-  TextInputType keyboardType;
+  final String placeHolder;
+  final IconData icon;
+  final TextInputType keyboardType;
 
-  FillupWidget({
+  const FillupWidget({
     super.key,
     required this.placeHolder,
     required this.icon,
