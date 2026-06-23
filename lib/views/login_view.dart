@@ -5,8 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/emailfield.dart';
 
-import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:shopease/widgets/title_widget.dart';
