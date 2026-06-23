@@ -24,7 +24,7 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Screen_title(text: 'Login',),
+              screenTitle(text: 'Login',),
 
               // Email
 
