@@ -4,12 +4,12 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class emailfield extends StatelessWidget {
-  String text;
-  String hintText;
-  IconData icon;
+class EmailField extends StatelessWidget {
+  final String text;
+  final String hintText;
+  final IconData icon;
 
-    emailfield({
+    const EmailField({
     super.key,
     required this.text,
     required this.hintText,
