@@ -1,7 +1,9 @@
-// import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:shopease/widgets/Screentitle.dart';
+import 'package:shopease/widgets/emailfield.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -17,67 +19,10 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(35),
-
-              // back icon
-              Icon(Icons.arrow_back, size: 28, color: Colors.black),
-
-              Gap(35),
-
-              // Login text
-              Center(
-                child: Text(
-                  "LOGIN",
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-
-              Gap(42),
+              Screen_title(text: 'Login',),
 
               // Email
-              Text(
-                "Email",
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              Gap(12),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xffF6F3FF),
-                  contentPadding: EdgeInsets.symmetric(vertical: 20),
-                  hint: Text(
-                    "Enter your email",
-                    style: TextStyle(color: Color(0xFF5B6475), fontSize: 15),
-                  ),
-
-                  prefixIcon: Icon(
-                    Icons.email,
-                    color: Color(0xFF6D28FF),
-                    // size: 20,
-                  ),
-
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
-                    borderSide: BorderSide(color: Color(0xffE5E7EB)),
-                  ),
-
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
-                    borderSide: BorderSide(color: Color(0xffE5E7EB)),
-                  ),
-                ),
-                keyboardType: TextInputType.emailAddress,
-              ),
-
-              Gap(30),
+              emailfield(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
 
               // password
               Text(
@@ -211,3 +156,4 @@ class LoginView extends StatelessWidget {
     );
   }
 }
+
