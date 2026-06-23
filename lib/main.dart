@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopease/views/login_view.dart';
+import 'package:shopease/views/payment_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: LoginView(),
+      home: PaymentScreen(),
     );
   }
 }
