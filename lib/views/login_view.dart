@@ -1,7 +1,9 @@
-// import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:shopease/widgets/button_widget.dart';
+import 'package:shopease/widgets/fillUp_widget.dart';
+import 'package:shopease/widgets/title_widget.dart';
+
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -39,87 +41,28 @@ class LoginView extends StatelessWidget {
               Gap(42),
 
               // Email
-              Text(
-                "Email",
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
+              TitleWidget(
+                title: "Email",
               ),
               Gap(12),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xffF6F3FF),
-                  contentPadding: EdgeInsets.symmetric(vertical: 20),
-                  hint: Text(
-                    "Enter your email",
-                    style: TextStyle(color: Color(0xFF5B6475), fontSize: 15),
-                  ),
-
-                  prefixIcon: Icon(
-                    Icons.email,
-                    color: Color(0xFF6D28FF),
-                    // size: 20,
-                  ),
-
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
-                    borderSide: BorderSide(color: Color(0xffE5E7EB)),
-                  ),
-
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
-                    borderSide: BorderSide(color: Color(0xffE5E7EB)),
-                  ),
-                ),
-                keyboardType: TextInputType.emailAddress,
+              FillupWidget(
+                placeHolder: "Enter your email", 
+                icon: Icons.email, 
+                keyboardType: TextInputType.emailAddress
               ),
 
               Gap(30),
 
               // password
-              Text(
-                "Password",
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
+              TitleWidget(
+                title: "Password"
               ),
               Gap(12),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xffF6F3FF),
-                  contentPadding: EdgeInsets.symmetric(vertical: 20),
-                  hint: Text(
-                    "Enter your password",
-                    style: TextStyle(color: Color(0xFF5B6475), fontSize: 15),
-                  ),
-
-                  prefixIcon: Icon(Icons.lock, color: Color(0xFF6D28FF)),
-
-                  suffixIcon: Icon(
-                    Icons.visibility_off,
-                    size: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
-                    borderSide: BorderSide(color: Color(0xffE5E7EB)),
-                  ),
-
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
-                    borderSide: BorderSide(color: Color(0xffE5E7EB)),
-                  ),
-                ),
-                obscureText: true,
+              FillupWidget(
+                placeHolder: "Enter your password", 
+                icon: Icons.lock, 
+                keyboardType: TextInputType.text,
               ),
-
               Gap(10),
 
               // forget text
@@ -127,9 +70,7 @@ class LoginView extends StatelessWidget {
                 children: [
                   Spacer(),
                   TextButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     child: Text(
                       "Forgot Password?",
                       style: TextStyle(
@@ -151,25 +92,9 @@ class LoginView extends StatelessWidget {
                     child: SizedBox(
                       height: 50,
                       width: double.infinity,
-                      child: FilledButton(
-                        style: FilledButton.styleFrom(
-                          backgroundColor: Color(0xFF6D28FF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadiusGeometry.circular(15),
-                          ),
-                          elevation: 0,
-                        ),
-                        onPressed: () {
-
-                        },
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
+                      child: ButtonWidget(
+                        buttonText: "Login",
+                        backgroundColor: Color(0xFF6D28FF),
                       ),
                     ),
                   ),
@@ -184,15 +109,10 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "Don't have an account?",
-                    style: TextStyle(
-                      fontSize: 15, 
-                      color: Colors.black
-                    ),
+                    style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
                   GestureDetector(
-                    onTap: () {
-
-                    },
+                    onTap: () {},
                     child: Text(
                       " Sign Up",
                       style: TextStyle(
@@ -211,3 +131,4 @@ class LoginView extends StatelessWidget {
     );
   }
 }
+
