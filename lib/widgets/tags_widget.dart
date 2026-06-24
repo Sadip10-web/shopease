@@ -23,7 +23,10 @@ class _TagsWidgetState extends State<TagsWidget> {
         widget.icon,
         color:  Color(0xFF6D28FF),
         ),
-      label: Text(widget.label),
+      label: Text(
+        widget.label,
+        style: TextStyle(color: Colors.black),),
     );
+    
   }
 }
