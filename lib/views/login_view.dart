@@ -1,7 +1,13 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/register_view.dart';
+import 'package:shopease/widgets/Screentitle.dart';
+import 'package:shopease/widgets/emailfield.dart';
+
+
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:shopease/widgets/title_widget.dart';
@@ -20,26 +26,7 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(35),
-
-              // back icon
-              Icon(Icons.arrow_back, size: 28, color: Colors.black),
-
-              Gap(35),
-
-              // Login text
-              Center(
-                child: Text(
-                  "LOGIN",
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-
-              Gap(42),
+              ScreenTitle(text: 'Login',),
 
               // Email
               TitleWidget(title: "Email"),
@@ -50,7 +37,20 @@ class LoginView extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
               ),
 
-              Gap(30),
+              EmailField(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
+
+            // TitleWidget(
+            // title: "Email",
+            // ),
+            //Gap(12),
+            //FillupWidget(
+            // placeHolder: "Enter your email", 
+            //icon: Icons.email, 
+            //keyboardType: TextInputType.emailAddress
+            // ),
+
+            //  Gap(30),
+
 
               // password
               TitleWidget(title: "Password"),
@@ -83,20 +83,7 @@ class LoginView extends StatelessWidget {
               Gap(28),
 
               // login button
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 50,
-                      width: double.infinity,
-                      child: ButtonWidget(
-                        buttonText: "Login",
-                        backgroundColor: Color(0xFF6D28FF),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+             ButtonWidget(buttonText: "Login", backgroundColor:  Color(0xFF6D28FF), onPressed: () { },),
 
               Gap(25),
 
