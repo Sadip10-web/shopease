@@ -29,7 +29,7 @@ class Verifyotp extends StatelessWidget {
            ),
            Gap(20),
            
-           ButtonWidget(buttonText: "Verify", backgroundColor:  Color(0xFF6D28FF))
+           ButtonWidget(buttonText: "Verify", backgroundColor:  Color(0xFF6D28FF), onPressed: () {  },)
 
           ],
           

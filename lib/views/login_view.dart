@@ -76,7 +76,7 @@ class LoginView extends StatelessWidget {
               Gap(28),
 
               // login button
-             ButtonWidget(buttonText: "Login", backgroundColor:  Color(0xFF6D28FF)),
+             ButtonWidget(buttonText: "Login", backgroundColor:  Color(0xFF6D28FF), onPressed: () { },),
 
               Gap(25),
 

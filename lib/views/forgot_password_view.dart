@@ -15,7 +15,7 @@ class ForgotPasswordView extends StatelessWidget {
           children: [
             ScreenTitle(text: "FORGOT PASSWORD"),
             EmailField(text: "Email", hintText: "Enter your email", icon: Icons.mail),
-            ButtonWidget(buttonText: "Next", backgroundColor: Color(0xFF6D28FF))
+            ButtonWidget(buttonText: "Next", backgroundColor: Color(0xFF6D28FF), onPressed: () { },)
           ],
         ),
       ) ,
