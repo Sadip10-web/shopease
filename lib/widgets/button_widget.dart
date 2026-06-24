@@ -14,23 +14,31 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton(
-      style: FilledButton.styleFrom(
-        backgroundColor: backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(15),
+    return Row(
+      
+      children: [
+        Expanded(
+          child: FilledButton(
+            style: FilledButton.styleFrom(
+              minimumSize: const Size(double.infinity, 60),
+              backgroundColor: backgroundColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusGeometry.circular(15),
+              ),
+              elevation: 0,
+            ),
+            onPressed: onPressed,
+            child: Text(
+              buttonText,
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
-        elevation: 0,
-      ),
-      onPressed: onPressed,
-      child: Text(
-        buttonText,
-        style: TextStyle(
-          fontSize: 21,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      ),
+      ],
     );
   }
 }
