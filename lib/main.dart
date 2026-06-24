@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopease/views/Verifyotp.dart';
-import 'package:shopease/views/forgot_password_view.dart';
-import 'package:shopease/views/login_view.dart';
-import 'package:shopease/views/order_success.dart';
-import 'package:shopease/views/payment_screen.dart';
+import 'package:shopease/views/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: Verifyotp(),
+      home: HomeScreen(),
     );
   }
 }
