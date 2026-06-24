@@ -28,7 +28,7 @@ class LoginView extends StatelessWidget {
 
               // Email
 
-              emailfield(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
+              EmailField(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
 
             // TitleWidget(
             // title: "Email",
