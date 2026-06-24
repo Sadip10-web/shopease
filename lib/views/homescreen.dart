@@ -1,25 +1,52 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    super.key, 
-    }
-    );
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Hello, Mahesh"),
-        
-      ),
-      body: Center(
-        child: Text('Home Screen'),
+    return SafeArea(
+      child: Scaffold(
+
+
+        body: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              Row(
+                children: [
+                  Text("Hello, "),
+                  Text(
+                    "Mahesh!",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF6D28FF),
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Welcome to "),
+                  Text(
+                    "ShopEase",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF6D28FF),
+                    ),  
+                  )
+                ],
+              ),
+              Spacer(),
+            ], //children
+          ),
+        ),
       ),
     );
   }
