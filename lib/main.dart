@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopease/views/Verifyotp.dart';
 import 'package:shopease/views/homescreen.dart';
 
 void main() {
