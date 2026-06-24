@@ -85,6 +85,9 @@ class LoginView extends StatelessWidget {
                       child: ButtonWidget(
                         buttonText: "Login",
                         backgroundColor: Color(0xFF6D28FF),
+                        onPressed: () {
+                          // Handle login button press
+                        },
                       ),
                     ),
                   ),
