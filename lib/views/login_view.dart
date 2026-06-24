@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/register_view.dart';
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:shopease/widgets/title_widget.dart';
-
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -41,26 +42,22 @@ class LoginView extends StatelessWidget {
               Gap(42),
 
               // Email
-              TitleWidget(
-                title: "Email",
-              ),
+              TitleWidget(title: "Email"),
               Gap(12),
               FillupWidget(
-                placeHolder: "Enter your email", 
-                icon: Icons.email, 
-                keyboardType: TextInputType.emailAddress
+                placeHolder: "Enter your email",
+                icon: Icons.email,
+                keyboardType: TextInputType.emailAddress,
               ),
 
               Gap(30),
 
               // password
-              TitleWidget(
-                title: "Password"
-              ),
+              TitleWidget(title: "Password"),
               Gap(12),
               FillupWidget(
-                placeHolder: "Enter your password", 
-                icon: Icons.lock, 
+                placeHolder: "Enter your password",
+                icon: Icons.lock,
                 keyboardType: TextInputType.text,
               ),
               Gap(10),
@@ -72,7 +69,7 @@ class LoginView extends StatelessWidget {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      "Forgot Password?",
+                      "Forgot Password",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
                         fontWeight: FontWeight.bold,
@@ -112,13 +109,15 @@ class LoginView extends StatelessWidget {
                     style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => RegisterView());
+                    },
                     child: Text(
                       " Sign Up",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
-                        fontSize: 15,
                         fontWeight: FontWeight.bold,
+                        fontSize: 15,
                       ),
                     ),
                   ),
@@ -131,4 +130,3 @@ class LoginView extends StatelessWidget {
     );
   }
 }
-
