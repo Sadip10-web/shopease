@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopease/views/changepassword_screen.dart';
 import 'package:shopease/views/login_view.dart';
 import 'package:shopease/views/register_view.dart';
 import 'package:shopease/views/Verifyotp.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: HomeScreen(),
+      home: ChangepasswordScreen(),
     );
   }
 }

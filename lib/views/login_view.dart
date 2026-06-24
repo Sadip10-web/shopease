@@ -26,17 +26,10 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ScreenTitle(text: 'Login',),
+              ScreenTitle(text: 'LOGIN',),
 
               // Email
-              TitleWidget(title: "Email"),
-              Gap(12),
-              FillupWidget(
-                placeHolder: "Enter your email",
-                icon: Icons.email,
-                keyboardType: TextInputType.emailAddress,
-              ),
-
+             
               EmailField(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
 
             // TitleWidget(
