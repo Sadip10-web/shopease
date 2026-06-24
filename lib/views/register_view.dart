@@ -4,6 +4,8 @@ import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:shopease/widgets/title_widget.dart';
 
+// register Screen
+
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
@@ -93,7 +95,7 @@ class RegisterView extends StatelessWidget {
                         child: ButtonWidget(
                           buttonText: "Create Account",
                           backgroundColor: Color(0xFF6D28FF), onPressed: () { 
-                            
+
                            },
                         ),
                       ),
