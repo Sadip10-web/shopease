@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopease/views/login_view.dart';
+import 'package:shopease/views/order_success.dart';
 import 'package:shopease/views/payment_screen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: PaymentScreen(),
+      home: OrderSuccessScreen(),
     );
   }
 }
