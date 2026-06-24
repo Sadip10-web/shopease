@@ -25,7 +25,7 @@ class ScreenTitle extends StatelessWidget {
           // Login text
           Center(
             child: Text(
-              "LOGIN",
+              text,
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w900,
