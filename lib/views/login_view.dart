@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/register_view.dart';
 import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/emailfield.dart';
 
@@ -24,10 +26,10 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ScreenTitle(text: 'Login',),
+              ScreenTitle(text: 'LOGIN',),
 
               // Email
-
+             
               EmailField(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
 
             // TitleWidget(
@@ -44,13 +46,11 @@ class LoginView extends StatelessWidget {
 
 
               // password
-              TitleWidget(
-                title: "Password"
-              ),
+              TitleWidget(title: "Password"),
               Gap(12),
               FillupWidget(
-                placeHolder: "Enter your password", 
-                icon: Icons.lock, 
+                placeHolder: "Enter your password",
+                icon: Icons.lock,
                 keyboardType: TextInputType.text,
               ),
               Gap(10),
@@ -62,7 +62,7 @@ class LoginView extends StatelessWidget {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      "Forgot Password?",
+                      "Forgot Password",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
                         fontWeight: FontWeight.bold,
@@ -89,13 +89,15 @@ class LoginView extends StatelessWidget {
                     style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => RegisterView());
+                    },
                     child: Text(
                       " Sign Up",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
-                        fontSize: 15,
                         fontWeight: FontWeight.bold,
+                        fontSize: 15,
                       ),
                     ),
                   ),
@@ -108,4 +110,3 @@ class LoginView extends StatelessWidget {
     );
   }
 }
-
