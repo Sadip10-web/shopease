@@ -16,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Hello, Mahesh"),
-        title: Text("Hello, Mahesh"),
       ),
       body: Center(
         child: Text('Home Screen'),
