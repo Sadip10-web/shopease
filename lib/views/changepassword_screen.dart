@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+
 import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/button_widget.dart';
-import 'package:shopease/widgets/emailfield.dart';
 import 'package:shopease/widgets/passwordfield_widget.dart';
 
 class ChangepasswordScreen extends StatelessWidget {
