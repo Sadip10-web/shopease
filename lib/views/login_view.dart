@@ -28,6 +28,11 @@ class LoginView extends StatelessWidget {
             children: [
               ScreenTitle(text: 'LOGIN',),
 
+              EmailField(
+                text: 'Email', 
+                hintText: 'Enter your email', 
+                icon: Icons.email,
+              ),
               // Email
              
               EmailField(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
@@ -76,7 +81,13 @@ class LoginView extends StatelessWidget {
               Gap(28),
 
               // login button
-             ButtonWidget(buttonText: "Login", backgroundColor:  Color(0xFF6D28FF), onPressed: () { },),
+             ButtonWidget(
+              buttonText: "Login", 
+              backgroundColor:  Color(0xFF6D28FF),
+              onPressed: () {
+
+              },
+            ),
 
               Gap(25),
 

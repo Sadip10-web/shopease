@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:shopease/widgets/button_widget.dart';
+import 'package:shopease/widgets/emailfield.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:shopease/widgets/title_widget.dart';
 
@@ -53,15 +54,11 @@ class RegisterView extends StatelessWidget {
                 Gap(30),
 
                 // Email
-                TitleWidget(title: "Email"),
-                Gap(12),
-                FillupWidget(
-                  placeHolder: "Enter your email",
-                  icon: Icons.lock,
-                  keyboardType: TextInputType.emailAddress,
+                EmailField(
+                  text: "Email", 
+                  hintText: "Enter your email", 
+                  icon: Icons.email
                 ),
-
-                Gap(30),
 
                 // password
                 TitleWidget(title: "Password"),
@@ -85,7 +82,7 @@ class RegisterView extends StatelessWidget {
 
                 Gap(28),
 
-                // login button
+                // create account button
                 Row(
                   children: [
                     Expanded(
