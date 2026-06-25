@@ -1,41 +1,76 @@
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
-  String image;
-  String title;
+  final String image;
+  final String title;
+  final Color backgroundColor;
 
-  CategoryCard({super.key, required this.image, required this.title});
+  const CategoryCard({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.backgroundColor,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(child: Image.asset(image, width: 120, height: 100)),
+    return Container(
+      padding: const EdgeInsets.all(12),
 
-            SizedBox(height: 5),
+      decoration: BoxDecoration(
+        color: backgroundColor,
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  children: [
-                    Text(title),
-                    SizedBox(height: 10),
-                    Text("125 products"),
-                  ],
+        borderRadius: BorderRadius.circular(20),
+
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+
+        children: [
+          Expanded(
+            child: Center(child: Image.asset(image, fit: BoxFit.contain)),
+          ),
+
+          const SizedBox(height: 8),
+
+          Text(
+            title,
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+          ),
+
+          const SizedBox(height: 4),
+
+          Row(
+            children: [
+              const Text(
+                "125 Products",
+                style: TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+
+              const Spacer(),
+
+              Container(
+                height: 28,
+                width: 28,
+
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
                 ),
 
-                SizedBox(width: 40),
-
-                Icon(Icons.arrow_forward),
-              ],
-            ),
-          ],
-        ),
+                child: const Icon(Icons.arrow_forward, size: 16),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
