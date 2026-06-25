@@ -39,7 +39,6 @@ class PasswordFieldWidget extends StatelessWidget {
                   prefixIcon: Icon(
                     Icons.lock,
                     color: Color(0xFF6D28FF),
-                    // size: 20,
                   ),
                   suffixIcon: Icon(
                     Icons.visibility_off,
@@ -56,7 +55,7 @@ class PasswordFieldWidget extends StatelessWidget {
                     borderSide: BorderSide(color: Color(0xffE5E7EB)),
                   ),
                 ),
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 obscureText: true,
               ),
               Gap(30)
