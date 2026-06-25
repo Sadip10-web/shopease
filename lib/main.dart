@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/views/login_view.dart';
+import 'views/login_view.dart';
 
 void main() {
   runApp(const MyApp());

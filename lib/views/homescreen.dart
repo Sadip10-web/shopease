@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 Gap(10),
                 // search area
                 FillupWidget(
-                  placeHolder: "Search Here",
+                  hintText: "Search Here",
                   icon: Icons.search,
 
                   keyboardType: TextInputType.text,
