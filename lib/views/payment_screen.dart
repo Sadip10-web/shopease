@@ -298,6 +298,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 height: 60,
 
                 child: ButtonWidget(
+                  color: Colors.white,
                   buttonText: "Pay Now", 
                   backgroundColor: Color(0xFF6D28FF), 
                   onPressed: (){}),
