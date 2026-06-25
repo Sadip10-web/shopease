@@ -4,7 +4,7 @@ class ButtonWidget extends StatelessWidget {
   final String buttonText;
   final Color backgroundColor;
   final VoidCallback? onPressed;
-  
+
   const ButtonWidget({
     super.key,
     required this.buttonText,
@@ -15,7 +15,6 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      
       children: [
         Expanded(
           child: FilledButton(
@@ -42,5 +41,3 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
-
-
