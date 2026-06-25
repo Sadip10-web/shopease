@@ -71,7 +71,7 @@ class RegisterView extends StatelessWidget {
                           backgroundColor: Color(0xFF6D28FF), 
                           onPressed: () { 
                             Get.to(() => LoginView());
-                           },
+                           }, color: Colors.white,
                         ),
                       ),
                     ),

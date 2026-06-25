@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:shopease/views/login_view.dart';
+import 'package:shopease/views/AfterSplashScreen.dart';
+
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -13,7 +14,7 @@ class Splashscreen extends StatefulWidget {
 class _SplashscreenState extends State<Splashscreen> {
   void authcheck(){
     Future.delayed(Duration(seconds: 3),(){
-      Get.off(()=>LoginView());
+      Get.off(()=>  Aftersplashscreen());
     });
   }
   @override
