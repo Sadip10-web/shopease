@@ -22,10 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.white),
-      ),
-      home:Splashscreen(),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
+      home: Splashscreen(),
     );
   }
 }
