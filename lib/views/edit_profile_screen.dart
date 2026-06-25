@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:shopease/widgets/button_widget.dart';
-import 'package:shopease/widgets/emailfield.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -88,6 +87,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
               // Name
               Gap(12),
+
               Text(
                 "Name",
                 style: TextStyle(
@@ -104,40 +104,87 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
               Gap(30),
 
-              // Email
+              //Email
+              Text(
+                "Email",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff5B6475),
+                ),
+              ),
               Gap(12),
               FillupWidget(
                 icon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
-                hintText: '',
+                hintText: 'john@gmail.com',
               ),
 
+              //PhoneNumber
               Gap(30),
 
+              Text(
+                "Phone Number",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff5B6475),
+                ),
+              ),
               Gap(8),
               FillupWidget(
                 icon: Icons.phone,
                 keyboardType: TextInputType.number,
-                hintText: '',
+                hintText: '+977 980000000',
               ),
+
               Gap(30),
 
+              //DOB
+              Text(
+                "Date of Birth",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff5B6475),
+                ),
+              ),
               Gap(8),
               FillupWidget(
                 icon: Icons.date_range,
                 keyboardType: TextInputType.datetime,
-                hintText: '',
+                hintText: 'Jan 01, 1995',
               ),
+
               Gap(30),
 
+              //Gender
+              Text(
+                "Gender",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff5B6475),
+                ),
+              ),
               Gap(8),
               FillupWidget(
                 icon: Icons.person,
                 keyboardType: TextInputType.text,
-                hintText: '',
+                hintText: 'Male',
               ),
+
               Gap(30),
 
+              //Address
+              Text(
+                "Address",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff5B6475),
+                ),
+              ),
               Gap(8),
               FillupWidget(
                 icon: Icons.location_on,
@@ -147,6 +194,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
               Gap(30),
 
+              //Button
               ButtonWidget(
                 buttonText: "Save Changes",
                 backgroundColor: Color(0xFF6D28FF),

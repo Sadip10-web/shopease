@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
-      home: Splashscreen(),
+      home: EditProfileScreen(),
     );
   }
 }
