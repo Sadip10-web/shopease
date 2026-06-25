@@ -26,6 +26,7 @@ class ChangepasswordScreen extends StatelessWidget {
               buttonText: "Proceed",
               backgroundColor: Color(0xFF6D28FF),
               onPressed: () {},
+              color: Colors.white,
             ),
           ],
         ),

@@ -3,7 +3,6 @@ import 'package:gap/gap.dart';
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/emailfield.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
-import 'package:shopease/widgets/title_widget.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -88,67 +87,71 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
 
               // Name
-              TitleWidget(title: "Name"),
               Gap(12),
+              Text(
+                "Name",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff5B6475),
+                ),
+              ),
               FillupWidget(
-                placeHolder: "John Doe",
                 icon: Icons.person,
                 keyboardType: TextInputType.text,
+                hintText: 'John Doe',
               ),
 
               Gap(30),
 
               // Email
-              TitleWidget(title: "Email"),
               Gap(12),
               FillupWidget(
-                placeHolder: "john@gmail.com",
                 icon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
+                hintText: '',
               ),
 
               Gap(30),
 
-              TitleWidget(title: "Phone Number"),
               Gap(8),
               FillupWidget(
-                placeHolder: "+977 9800000000",
                 icon: Icons.phone,
                 keyboardType: TextInputType.number,
+                hintText: '',
               ),
               Gap(30),
 
-              TitleWidget(title: "Date of Birth"),
               Gap(8),
               FillupWidget(
-                placeHolder: "Jan 01, 1995",
                 icon: Icons.date_range,
                 keyboardType: TextInputType.datetime,
+                hintText: '',
               ),
               Gap(30),
 
-              TitleWidget(title: "Gender"),
               Gap(8),
               FillupWidget(
-                placeHolder: "Male",
                 icon: Icons.person,
                 keyboardType: TextInputType.text,
+                hintText: '',
               ),
               Gap(30),
 
-              TitleWidget(title: "Address"),
               Gap(8),
               FillupWidget(
-                placeHolder: "Pokhara, Kaski",
                 icon: Icons.location_on,
                 keyboardType: TextInputType.text,
+                hintText: 'Pokhara, Kaski',
               ),
+
               Gap(30),
 
               ButtonWidget(
                 buttonText: "Save Changes",
                 backgroundColor: Color(0xFF6D28FF),
                 onPressed: () {},
+                color: Colors.white,
               ),
             ],
           ),

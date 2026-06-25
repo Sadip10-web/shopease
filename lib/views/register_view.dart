@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/login_view.dart';
+import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/emailfield.dart';
-import 'package:shopease/widgets/fillUp_widget.dart';
-import 'package:shopease/widgets/title_widget.dart';
-
-// register Screen
+import 'package:shopease/widgets/passwordfield_widget.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
@@ -22,36 +21,20 @@ class RegisterView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Gap(35),
 
-                // back icon
-                Icon(Icons.arrow_back, size: 28, color: Colors.black),
-
-                Gap(35),
-
-                // Register text
-                Center(
-                  child: Text(
-                    "Register",
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.black,
-                    ),
-                  ),
+                // back icon and title
+                ScreenTitle(
+                  text: "Register"
                 ),
-                Gap(42),
+                
 
                 // Name
-                TitleWidget(title: "Name"),
-                Gap(12),
-                FillupWidget(
-                  placeHolder: "Enter your name",
-                  icon: Icons.person,
-                  keyboardType: TextInputType.text,
+                EmailField(
+                  text: "Name", 
+                  hintText: "Enter your name", 
+                  icon: Icons.person
                 ),
 
-                Gap(30),
 
                 // Email
                 EmailField(
@@ -60,27 +43,21 @@ class RegisterView extends StatelessWidget {
                   icon: Icons.email,
                 ),
 
+
+
                 // password
-                TitleWidget(title: "Password"),
-                Gap(12),
-                FillupWidget(
-                  placeHolder: "Enter your password",
-                  icon: Icons.lock,
-                  keyboardType: TextInputType.text,
+                PasswordFieldWidget(
+                  text: "Password", 
+                  hintText: "Enter your password"
                 ),
 
-                Gap(30),
 
                 // confirm password
-                TitleWidget(title: "Confirm Password"),
-                Gap(12),
-                FillupWidget(
-                  placeHolder: "Confirm your password",
-                  icon: Icons.lock,
-                  keyboardType: TextInputType.text,
+                PasswordFieldWidget(
+                  text: "Confirm Password", 
+                  hintText: "Confirm your password"
                 ),
 
-                Gap(28),
 
                 // create account button
                 Row(
@@ -91,8 +68,15 @@ class RegisterView extends StatelessWidget {
                         width: double.infinity,
                         child: ButtonWidget(
                           buttonText: "Create Account",
+<<<<<<< HEAD
                           backgroundColor: Color(0xFF6D28FF),
                           onPressed: () {},
+=======
+                          backgroundColor: Color(0xFF6D28FF), 
+                          onPressed: () { 
+                            Get.to(() => LoginView());
+                           }, color: Colors.white,
+>>>>>>> ec6605aae8f5501a28363d96718feb8d7f7a9872
                         ),
                       ),
                     ),
