@@ -11,14 +11,15 @@ class Cartscreenview extends StatefulWidget {
 class _CartscreenviewState extends State<Cartscreenview> {
   Widget cartSummary() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      // height: 80,
+      padding: EdgeInsets.only(left: 30, right: 10, top: 5, bottom: 5),
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 10,
-            offset: Offset(0, -2),
+            blurRadius: 2,
+            offset: Offset(0, -1),
           ),
         ],
       ),
@@ -37,14 +38,14 @@ class _CartscreenviewState extends State<Cartscreenview> {
                         "Total: ",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 14,
                         ),
                       ),
                       Text(
                         "Rs. ${getTotalPrice().toStringAsFixed(0)}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 12,
                           color: Colors.orange,
                         ),
                       ),
@@ -238,22 +239,25 @@ class _CartscreenviewState extends State<Cartscreenview> {
     required String oldPrice,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10, right: 20, left: 8),
+      padding: const EdgeInsets.only(top: 5, right: 20),
       child: Row(
         children: [
-          Checkbox(
-            value: isChecked[index],
-            onChanged: (value) {
-              setState(() => isChecked[index] = value!);
-            },
-            shape: const CircleBorder(),
-            activeColor: const Color(0xFF6D28FF),
-            checkColor: Colors.white,
+          Transform.scale(
+            scale: 0.7, // Smaller than default
+            child: Checkbox(
+              value: isChecked[index],
+              onChanged: (value) {
+                setState(() => isChecked[index] = value!);
+              },
+              shape: const CircleBorder(),
+              activeColor: const Color(0xFF6D28FF),
+              checkColor: Colors.white,
+            ),
           ),
           Expanded(
             child: Container(
-              height: 105,
-              padding: const EdgeInsets.all(10),
+              height: 88,
+              padding: const EdgeInsets.only(top: 10, left: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -268,8 +272,8 @@ class _CartscreenviewState extends State<Cartscreenview> {
                     borderRadius: BorderRadius.circular(8),
                     child: Image.network(
                       imageUrl,
-                      width: 70,
-                      height: 70,
+                      width: 65,
+                      height: 65,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -282,13 +286,16 @@ class _CartscreenviewState extends State<Cartscreenview> {
                           productName,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                            fontSize: 12,
                           ),
                         ),
                         const SizedBox(height: 2),
                         Text(
                           shopName,
-                          style: const TextStyle(color: Colors.grey),
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
                         ),
                         const Spacer(),
                         Row(
@@ -301,6 +308,7 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   style: const TextStyle(
                                     color: Colors.green,
                                     fontWeight: FontWeight.bold,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -308,6 +316,7 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   style: const TextStyle(
                                     color: Colors.red,
                                     decoration: TextDecoration.lineThrough,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ],
@@ -324,6 +333,7 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   },
                                   icon: const Icon(
                                     Icons.indeterminate_check_box_outlined,
+                                    size: 18,
                                   ),
                                 ),
                                 Text(
@@ -334,7 +344,10 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   onPressed: () {
                                     setState(() => quantity[index]++);
                                   },
-                                  icon: const Icon(Icons.add_box_outlined),
+                                  icon: const Icon(
+                                    Icons.add_box_outlined,
+                                    size: 18,
+                                  ),
                                 ),
                               ],
                             ),
