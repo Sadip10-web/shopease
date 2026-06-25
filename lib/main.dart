@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/homescreen.dart';
+import 'views/login_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,6 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
       home: LoginView(),
-      home: ChangepasswordScreen(),
     );
   }
 }
