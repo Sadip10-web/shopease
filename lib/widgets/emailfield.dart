@@ -25,7 +25,7 @@ class EmailField extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              fontSize: 21,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
               color: Color(0xff5B6475),
             ),
