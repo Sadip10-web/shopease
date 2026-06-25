@@ -8,6 +8,8 @@ import 'package:shopease/views/register_view.dart';
 import 'package:shopease/views/Verifyotp.dart';
 import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/views/login_view.dart';
+import 'package:shopease/views/search_screen.dart';
+import 'package:shopease/views/wishlist_view.dart';
 import 'views/login_view.dart';
 
 void main() {
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
-      home: Splashscreen(),
+      home: SearchScreen(),
     );
   }
 }

@@ -318,8 +318,9 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      if (quantity[index] > 1)
+                                      if (quantity[index] > 1) {
                                         quantity[index]--;
+                                      }
                                     });
                                   },
                                   icon: const Icon(
