@@ -68,15 +68,10 @@ class RegisterView extends StatelessWidget {
                         width: double.infinity,
                         child: ButtonWidget(
                           buttonText: "Create Account",
-<<<<<<< HEAD
-                          backgroundColor: Color(0xFF6D28FF),
-                          onPressed: () {},
-=======
                           backgroundColor: Color(0xFF6D28FF), 
                           onPressed: () { 
                             Get.to(() => LoginView());
                            }, color: Colors.white,
->>>>>>> ec6605aae8f5501a28363d96718feb8d7f7a9872
                         ),
                       ),
                     ),
