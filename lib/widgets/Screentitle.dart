@@ -18,14 +18,18 @@ class ScreenTitle extends StatelessWidget {
           Gap(35),
           
           // back icon
-          Icon(Icons.arrow_back, size: 28, color: Colors.black),
+          Icon(
+            Icons.arrow_back, 
+            size: 28, 
+            color: Colors.black
+          ),
           
-          Gap(35),
+          Gap(25),
           
           // Login text
           Center(
             child: Text(
-              "LOGIN",
+              text,
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w900,
@@ -34,7 +38,7 @@ class ScreenTitle extends StatelessWidget {
             ),
           ),
           
-          Gap(42),
+          Gap(40),
         ],
       ),
     );

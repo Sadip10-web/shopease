@@ -2,13 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/forgot_password_view.dart';
+import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/register_view.dart';
 import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/emailfield.dart';
 
 
 import 'package:shopease/widgets/button_widget.dart';
-import 'package:shopease/widgets/fillUp_widget.dart';
-import 'package:shopease/widgets/title_widget.dart';
+import 'package:shopease/widgets/passwordfield_widget.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -24,45 +27,37 @@ class LoginView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ScreenTitle(text: 'Login',),
+
+              // / back icon and title
+              ScreenTitle(
+                text: "LOGIN"
+              ),
 
               // Email
-
-              EmailField(text: 'Email', hintText: 'Enter your email', icon: Icons.mail,),
-
-            // TitleWidget(
-            // title: "Email",
-            // ),
-            //Gap(12),
-            //FillupWidget(
-            // placeHolder: "Enter your email", 
-            //icon: Icons.email, 
-            //keyboardType: TextInputType.emailAddress
-            // ),
-
-            //  Gap(30),
+              EmailField(
+                text: "Email", 
+                hintText: 'Enter your email', 
+                icon: Icons.email,
+              ),
 
 
               // password
-              TitleWidget(
-                title: "Password"
+              PasswordFieldWidget(
+                text: "Password", 
+                hintText: "Enter your password"
               ),
-              Gap(12),
-              FillupWidget(
-                placeHolder: "Enter your password", 
-                icon: Icons.lock, 
-                keyboardType: TextInputType.text,
-              ),
-              Gap(10),
+              
 
               // forget text
               Row(
                 children: [
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => ForgotPasswordView());
+                    },
                     child: Text(
-                      "Forgot Password?",
+                      "Forgot Password",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
                         fontWeight: FontWeight.bold,
@@ -76,20 +71,13 @@ class LoginView extends StatelessWidget {
               Gap(28),
 
               // login button
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 50,
-                      width: double.infinity,
-                      child: ButtonWidget(
-                        buttonText: "Login",
-                        backgroundColor: Color(0xFF6D28FF),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+             ButtonWidget(
+              buttonText: "Login", 
+              backgroundColor:  Color(0xFF6D28FF),
+              onPressed: () {
+                Get.to(() => HomeScreen());
+              },
+            ),
 
               Gap(25),
 
@@ -99,19 +87,26 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "Don't have an account?",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyle(
+                      fontSize: 15, 
+                      color: Colors.black
+                    ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => RegisterView());
+                    },
                     child: Text(
                       " Sign Up",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
-                        fontSize: 15,
                         fontWeight: FontWeight.bold,
+                        fontSize: 15,
                       ),
                     ),
                   ),
+
+
                 ],
               ),
             ],
@@ -121,4 +116,3 @@ class LoginView extends StatelessWidget {
     );
   }
 }
-
