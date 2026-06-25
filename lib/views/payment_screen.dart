@@ -4,6 +4,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:shopease/widgets/Screentitle.dart';
+import 'package:shopease/widgets/button_widget.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
@@ -99,6 +101,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
             children: [
 
+              Divider(),
               const SizedBox(height: 10),
 
               const Text(
@@ -294,32 +297,37 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
                 height: 60,
 
-                child: FilledButton(
+                child: ButtonWidget(
+                  buttonText: "Pay Now", 
+                  backgroundColor: Color(0xFF6D28FF), 
+                  onPressed: (){}),
 
-                  style: FilledButton.styleFrom(
+                // child: FilledButton(
 
-                    backgroundColor:
-                        const Color(0xFF6D28FF),
+                //   style: FilledButton.styleFrom(
 
-                    shape:
-                        RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(16),
-                    ),
-                  ),
+                //     backgroundColor:
+                //         const Color(0xFF6D28FF),
 
-                  onPressed: () {},
+                //     shape:
+                //         RoundedRectangleBorder(
+                //       borderRadius:
+                //           BorderRadius.circular(16),
+                //     ),
+                //   ),
 
-                  child: const Text(
+                //   onPressed: () {},
 
-                    "Pay Now",
+                //   child: const Text(
 
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                //     "Pay Now",
+
+                //     style: TextStyle(
+                //       fontSize: 22,
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                // ),
               ),
 
               const SizedBox(height: 20),
