@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/homescreen.dart';
-import 'package:shopease/views/login_view.dart';
-import 'views/login_view.dart';
+import 'package:shopease/views/order_history_view.dart';
+import 'package:shopease/views/product_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: LoginView(),
+      home: EditProfileScreen(),
     );
   }
 }
