@@ -18,8 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      
-      home: OrderHistoryView(),
+      home: HomeScreen(),
     );
   }
 }
