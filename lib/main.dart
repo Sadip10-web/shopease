@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/changepassword_screen.dart';
 import 'package:shopease/views/login_view.dart';
+import 'package:shopease/views/payment_screen.dart';
 import 'package:shopease/views/register_view.dart';
 import 'package:shopease/views/Verifyotp.dart';
 import 'package:shopease/views/homescreen.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: ChangepasswordScreen(),
+      home: PaymentScreen(),
     );
   }
 }
