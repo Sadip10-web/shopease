@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: ChangepasswordScreen(),
+      home: HomeScreen(),
     );
   }
 }
