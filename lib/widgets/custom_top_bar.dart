@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class CustomTopBar extends StatelessWidget
@@ -12,7 +13,7 @@ class CustomTopBar extends StatelessWidget
   });
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(56);
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,17 @@ class CustomTopBar extends StatelessWidget
       elevation: 0,
       centerTitle: true,
       automaticallyImplyLeading: false,
+
       leading: IconButton(
+        onPressed: () {
+          Get.back();
+        },
         icon: const Icon(
-          Icons.arrow_back,
+          Icons.arrow_back_ios,
           color: Colors.black,
         ),
-        onPressed: () => Navigator.pop(context),
       ),
+
       title: Text(
         title,
         style: const TextStyle(
@@ -40,3 +45,4 @@ class CustomTopBar extends StatelessWidget
     );
   }
 }
+

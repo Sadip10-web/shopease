@@ -48,9 +48,7 @@ class OrderDetailsView extends StatelessWidget {
         quantity: "1",
         status: "Completed",
         imagePath: "https://www.bing.com/th/id/OIP.tJQjxbLRRaEt9B4OB546kAHaHw?w=193&h=202&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
-
         showTotalItem: false,
-
         leftButtonText: "Return/Refund",
         rightButtonText: "Review",
 
@@ -61,16 +59,13 @@ class OrderDetailsView extends StatelessWidget {
       PriceDetailsCard(
       subtotalLabel: "Subtotal(1 item)",
        subtotalAmount: "Rs. 3000",
-
        shippingLabel: "Shipping Fee",
        shippingAmount: "Rs. 120",
-
         extraFeeLabel: "COD Handling Fee",
         extraFeeAmount: "Rs. 8",
-
-  totalAmount: "Rs. 3128",
+        totalAmount: "Rs. 3128",
 ),
-OrderTrackingCard(
+       OrderTrackingCard(
   trackingMessage:
       "27 Oct - Package delivered!",
   onTap: () {

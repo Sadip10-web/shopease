@@ -38,8 +38,6 @@ class OrderDetailsCardWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
-          // Status Text Section
           Expanded(
             child: Column(
               crossAxisAlignment:
@@ -377,3 +375,4 @@ class PriceDetailsCard extends StatelessWidget {
     );
   }
 }
+

@@ -169,8 +169,7 @@ class OrderTrackingTimeline extends StatelessWidget {
                         child: step.isCompleted
                             ? const Icon(
                                 Icons.check,
-                                color:
-                                    Colors.white,
+                                color:Colors.white,
                                 size: 14,
                               )
                             : null,
@@ -198,40 +197,29 @@ class OrderTrackingTimeline extends StatelessWidget {
                       ),
                       child: Column(
                         crossAxisAlignment:
-                            CrossAxisAlignment
-                                .start,
+                            CrossAxisAlignment.start,
                         children: [
                           Text(
                             step.title,
-                            style:
-                                const TextStyle(
+                            style:const TextStyle(
                               fontSize: 18,
-                              fontWeight:
-                                  FontWeight.w700,
+                              fontWeight:FontWeight.w700,
                             ),
                           ),
-
                           const SizedBox(
                               height: 4),
-
                           Text(
                             step.description,
-                            style:
-                                const TextStyle(
-                              color:
-                                  Colors.grey,
+                            style: const TextStyle(
+                              color: Colors.grey,
                             ),
                           ),
-
                           const SizedBox(
                               height: 4),
-
                           Text(
                             step.dateTime,
-                            style:
-                                const TextStyle(
-                              color:
-                                  Colors.black54,
+                            style: const TextStyle(
+                              color:Colors.black54,
                             ),
                           ),
                         ],
