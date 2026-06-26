@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Product_card extends StatelessWidget {
+class ProductCard extends StatelessWidget {
   final String imageUrl;
   final String productTitle;
   final String oldPrice;
   final String newPrice;
-  const Product_card({
+  const ProductCard({
     super.key,
     required this.imageUrl,
     required this.oldPrice,
