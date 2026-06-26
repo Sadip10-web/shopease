@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class FeaturedCard extends StatefulWidget {
-  final String imageUrl;
+  final String ImageUrl;
   
   const FeaturedCard({
     super.key,
-    required this.imageUrl,
+    required this.ImageUrl,
   });
 
   @override
@@ -36,7 +36,7 @@ class _FeaturedCardState extends State<FeaturedCard> {
       
           // 3. Insert the network image
           image: DecorationImage(
-            image: NetworkImage(widget.imageUrl), // Fixed: accesses stateful property
+            image: NetworkImage(widget.ImageUrl), // Fixed: accesses stateful property
             fit: BoxFit.fill,
           ),
         ),
