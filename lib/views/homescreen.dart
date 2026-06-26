@@ -130,32 +130,32 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         FeaturedCard(
-                          imageUrl:
+                          ImageUrl:
                               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D',
                         ),
 
                         FeaturedCard(
-                          imageUrl:
+                          ImageUrl:
                               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D',
                         ),
 
                         FeaturedCard(
-                          imageUrl:
+                          ImageUrl:
                               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D',
                         ),
 
                         FeaturedCard(
-                          imageUrl:
+                          ImageUrl:
                               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D',
                         ),
 
                         FeaturedCard(
-                          imageUrl:
+                          ImageUrl:
                               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D',
                         ),
 
                         FeaturedCard(
-                          imageUrl:
+                          ImageUrl:
                               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D',
                         ),
                         Gap(20),
@@ -185,7 +185,7 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        Product_card(
+                        ProductCard(
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
@@ -195,7 +195,7 @@ class HomeScreen extends StatelessWidget {
 
                         Gap(10),
 
-                        Product_card(
+                        ProductCard(
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
@@ -205,7 +205,7 @@ class HomeScreen extends StatelessWidget {
 
                         Gap(10),
 
-                        Product_card(
+                        ProductCard(
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
@@ -215,7 +215,7 @@ class HomeScreen extends StatelessWidget {
 
                         Gap(10),
 
-                        Product_card(
+                        ProductCard(
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
@@ -225,7 +225,7 @@ class HomeScreen extends StatelessWidget {
 
                         Gap(10),
 
-                        Product_card(
+                        ProductCard(
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
@@ -235,7 +235,7 @@ class HomeScreen extends StatelessWidget {
 
                         Gap(10),
 
-                        Product_card(
+                        ProductCard(
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
@@ -268,7 +268,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -276,7 +276,7 @@ class HomeScreen extends StatelessWidget {
                             productTitle: "Headset",
                           ),
                           Gap(75),
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -287,7 +287,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -295,7 +295,7 @@ class HomeScreen extends StatelessWidget {
                             productTitle: "Headset",
                           ),
                           Gap(75),
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -306,7 +306,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -314,7 +314,7 @@ class HomeScreen extends StatelessWidget {
                             productTitle: "Headset",
                           ),
                           Gap(75),
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -325,7 +325,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
@@ -333,7 +333,7 @@ class HomeScreen extends StatelessWidget {
                             productTitle: "Headset",
                           ),
                           Gap(75),
-                          Product_card(
+                          ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                             oldPrice: "1700",
