@@ -735,46 +735,10 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   Gap(10),
-                  // search area
-                  FillupWidget(
-                    hintText: "Search Here",
-                    icon: Icons.search,
-
-                    keyboardType: TextInputType.text,
-                  ),
-                  Gap(10),
+                  
 
                   // tags area
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: SizedBox(
-                      child: Row(
-                        children: [
-                          TagsWidget(label: "All", icon: Icons.travel_explore),
-                          Gap(5),
-                          TagsWidget(label: "Fashion", icon: Icons.checkroom),
-                          Gap(5),
-                          TagsWidget(label: "Wearables", icon: Icons.watch),
-                          Gap(5),
-                          TagsWidget(
-                            label: "Shoes",
-                            icon: Icons.directions_run,
-                          ),
-                          Gap(5),
-                          TagsWidget(
-                            label: "Smartphone",
-                            icon: Icons.smartphone,
-                          ),
-                          Gap(5),
-                          TagsWidget(
-                            label: "Smartphone",
-                            icon: Icons.smartphone,
-                          ),
-                          Gap(5),
-                        ],
-                      ),
-                    ),
-                  ),
+                  
                 ], //children
               ),
             ),
