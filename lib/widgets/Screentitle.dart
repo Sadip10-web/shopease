@@ -18,7 +18,11 @@ class ScreenTitle extends StatelessWidget {
           Gap(35),
           
           // back icon
-          Icon(Icons.arrow_back, size: 28, color: Colors.black),
+          Icon(
+            Icons.arrow_back, 
+            size: 28, 
+            color: Colors.black
+          ),
           
           Gap(25),
           

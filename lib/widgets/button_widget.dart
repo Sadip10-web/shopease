@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 class ButtonWidget extends StatelessWidget {
   final String buttonText;
   final Color backgroundColor;
+  final Color color;
   final VoidCallback? onPressed;
-  
+
   const ButtonWidget({
     super.key,
     required this.buttonText,
     required this.backgroundColor,
+    required this.color,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      
       children: [
         Expanded(
           child: FilledButton(
@@ -33,7 +34,7 @@ class ButtonWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 21,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color:color,
               ),
             ),
           ),
@@ -42,5 +43,3 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
-
-
