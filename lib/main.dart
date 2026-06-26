@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/Splashscreen.dart';
+import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/views/search_screen.dart';
 import 'package:shopease/views/Verifyotp.dart';
@@ -28,8 +29,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-
-      // home: SearchScreen(),
       home: Splashscreen(),
     );
   }
