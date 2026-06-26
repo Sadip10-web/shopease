@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:shopease/views/wishlist_view.dart';
+import 'package:shopease/views/wishlist_view.dart';
 
 class Cartscreenview extends StatefulWidget {
   const Cartscreenview({super.key});
@@ -11,15 +11,14 @@ class Cartscreenview extends StatefulWidget {
 class _CartscreenviewState extends State<Cartscreenview> {
   Widget cartSummary() {
     return Container(
-      // height: 80,
-      padding: EdgeInsets.only(left: 30, right: 10, top: 5, bottom: 5),
+      padding: const EdgeInsets.all(16),
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 2,
-            offset: Offset(0, -1),
+            blurRadius: 10,
+            offset: Offset(0, -2),
           ),
         ],
       ),
@@ -38,14 +37,14 @@ class _CartscreenviewState extends State<Cartscreenview> {
                         "Total: ",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 18,
                         ),
                       ),
                       Text(
                         "Rs. ${getTotalPrice().toStringAsFixed(0)}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                          fontSize: 18,
                           color: Colors.orange,
                         ),
                       ),
@@ -239,25 +238,22 @@ class _CartscreenviewState extends State<Cartscreenview> {
     required String oldPrice,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5, right: 20),
+      padding: const EdgeInsets.only(top: 10, right: 20, left: 8),
       child: Row(
         children: [
-          Transform.scale(
-            scale: 0.7, // Smaller than default
-            child: Checkbox(
-              value: isChecked[index],
-              onChanged: (value) {
-                setState(() => isChecked[index] = value!);
-              },
-              shape: const CircleBorder(),
-              activeColor: const Color(0xFF6D28FF),
-              checkColor: Colors.white,
-            ),
+          Checkbox(
+            value: isChecked[index],
+            onChanged: (value) {
+              setState(() => isChecked[index] = value!);
+            },
+            shape: const CircleBorder(),
+            activeColor: const Color(0xFF6D28FF),
+            checkColor: Colors.white,
           ),
           Expanded(
             child: Container(
-              height: 88,
-              padding: const EdgeInsets.only(top: 10, left: 10),
+              height: 105,
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -272,8 +268,8 @@ class _CartscreenviewState extends State<Cartscreenview> {
                     borderRadius: BorderRadius.circular(8),
                     child: Image.network(
                       imageUrl,
-                      width: 65,
-                      height: 65,
+                      width: 70,
+                      height: 70,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -286,16 +282,13 @@ class _CartscreenviewState extends State<Cartscreenview> {
                           productName,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 12,
+                            fontSize: 16,
                           ),
                         ),
                         const SizedBox(height: 2),
                         Text(
                           shopName,
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12,
-                          ),
+                          style: const TextStyle(color: Colors.grey),
                         ),
                         const Spacer(),
                         Row(
@@ -308,7 +301,6 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   style: const TextStyle(
                                     color: Colors.green,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -316,7 +308,6 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   style: const TextStyle(
                                     color: Colors.red,
                                     decoration: TextDecoration.lineThrough,
-                                    fontSize: 12,
                                   ),
                                 ),
                               ],
@@ -327,13 +318,13 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      if (quantity[index] > 1)
+                                      if (quantity[index] > 1) {
                                         quantity[index]--;
+                                      }
                                     });
                                   },
                                   icon: const Icon(
                                     Icons.indeterminate_check_box_outlined,
-                                    size: 18,
                                   ),
                                 ),
                                 Text(
@@ -344,10 +335,7 @@ class _CartscreenviewState extends State<Cartscreenview> {
                                   onPressed: () {
                                     setState(() => quantity[index]++);
                                   },
-                                  icon: const Icon(
-                                    Icons.add_box_outlined,
-                                    size: 18,
-                                  ),
+                                  icon: const Icon(Icons.add_box_outlined),
                                 ),
                               ],
                             ),
