@@ -38,9 +38,9 @@ class RegisterView extends StatelessWidget {
 
                 // Email
                 EmailField(
-                  text: "Email", 
-                  hintText: "Enter your email", 
-                  icon: Icons.email
+                  text: "Email",
+                  hintText: "Enter your email",
+                  icon: Icons.email,
                 ),
 
 
@@ -71,12 +71,10 @@ class RegisterView extends StatelessWidget {
                           backgroundColor: Color(0xFF6D28FF), 
                           onPressed: () { 
                             Get.to(() => LoginView());
-                           },
+                           }, color: Colors.white,
                         ),
                       ),
                     ),
-
-
                   ],
                 ),
               ],
