@@ -13,21 +13,10 @@ class ChangepasswordScreen extends StatelessWidget {
         padding: const EdgeInsets.all(22),
         child: Column(
           children: [
-            ScreenTitle(text: "CHANGE PASSWORD"),
-            PasswordFieldWidget(
-              text: 'New Password',
-              hintText: 'Enter new Password',
-            ),
-            PasswordFieldWidget(
-              text: "Confirm Password ",
-              hintText: "Re-enter new Password",
-            ),
-            ButtonWidget(
-              buttonText: "Proceed",
-              backgroundColor: Color(0xFF6D28FF),
-              onPressed: () {},
-              color: Colors.white,
-            ),
+        ScreenTitle(text: "CHANGE PASSWORD"),
+         PasswordFieldWidget(text: 'New Password', hintText: 'Enter new Password',),
+         PasswordFieldWidget(text: "Confirm Password ", hintText: "Re-enter new Password"),
+         ButtonWidget(buttonText: "Proceed", backgroundColor:  Color(0xFF6D28FF), onPressed: (){}, color: Colors.white,)
           ],
         ),
       ),
