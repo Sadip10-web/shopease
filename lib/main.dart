@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/homescreen.dart';
 // import 'package:shopease/views/order_history_view.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: HomeScreen(),
+      home: Splashscreen(),
     );
   }
 }

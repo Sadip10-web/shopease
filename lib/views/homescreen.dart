@@ -579,7 +579,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
-                          newPrice: "1200222",
+                          newPrice: "1200",
                           productTitle: "Headset",
                         ),
 
@@ -589,7 +589,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
-                          newPrice: "1200222",
+                          newPrice: "1200",
                           productTitle: "Headset",
                         ),
 
@@ -599,7 +599,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
-                          newPrice: "1200222",
+                          newPrice: "1200",
                           productTitle: "Headset",
                         ),
 
@@ -609,7 +609,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
-                          newPrice: "1200222",
+                          newPrice: "1200",
                           productTitle: "Headset",
                         ),
 
@@ -619,7 +619,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
-                          newPrice: "1200222",
+                          newPrice: "1200",
                           productTitle: "Headset",
                         ),
 
@@ -629,7 +629,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl:
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
                           oldPrice: "1700",
-                          newPrice: "1200222",
+                          newPrice: "1200",
                           productTitle: "Headset",
                         ),
                       ],
@@ -654,90 +654,90 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                          Gap(75),
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                          Gap(75),
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                          Gap(75),
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                          Gap(75),
-                          ProductCard(
-                            imageUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
-                            oldPrice: "1700",
-                            newPrice: "1200222",
-                            productTitle: "Headset",
-                          ),
-                        ],
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                            Spacer(),
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                            Spacer(),
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                            Spacer(),
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                            Spacer(),
+                            ProductCard(
+                              imageUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
+                              oldPrice: "1700",
+                              newPrice: "1200",
+                              productTitle: "Headset",
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Gap(10),
-                  
-
-                  // tags area
                   
                 ], //children
               ),
