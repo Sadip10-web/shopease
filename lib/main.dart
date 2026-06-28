@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/views/search_screen.dart';
 // import 'package:shopease/views/order_history_view.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // home: SearchScreen(),
-      home: HomeScreen(),
+      home: Splashscreen(),
     );
   }
 }
