@@ -19,7 +19,6 @@ class ProductCard extends StatelessWidget {
     return Card(
       elevation: 3,
       child: SizedBox(
-        
         height: 305,
         width: 200,
         child: Padding(
@@ -27,65 +26,55 @@ class ProductCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Image.network(
-                imageUrl,
-                width:200,
-                height: 200,
+              Expanded(
+                child: Image.network(
+                  imageUrl,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
-                Row(
-                  children: [
-                    Text(productTitle,
+              ),
+              Row(
+                children: [
+                  Text(productTitle, style: TextStyle(fontSize: 18)),
+                  Spacer(),
+                  IconButton(
+                    onPressed: () {
+                      // Icon(CupertinoIcons.heart_fill,
+                      // color: Colors.red,);
+                    },
+                    icon: Icon(CupertinoIcons.heart, color: Colors.red),
+                  ),
+                ],
+              ),
+              Text(
+                newPrice,
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 16, 187, 0),
+                  // decoration: TextDecoration.lineThrough,
+                ),
+              ),
+              // price section inside same sizedbox
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "Price: ",
                     style: TextStyle(
-                      fontSize: 18,
+                      color: const Color.fromARGB(255, 0, 0, 0),
+
+                      // decoration: TextDecoration.lineThrough,
                     ),
+                  ),
+                  Text(
+                    oldPrice,
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 255, 0, 0),
+
+                      decoration: TextDecoration.lineThrough,
                     ),
-                    Spacer(),
-                    IconButton(
-                      
-                      onPressed: (){
-                        // Icon(CupertinoIcons.heart_fill,
-                        // color: Colors.red,);
-                      }, 
-                      icon: Icon(
-                        CupertinoIcons.heart,
-                        color: Colors.red,
-                        )
-                        ),
-                        
-                  ],
-                ),
-                Text(
-                      newPrice,
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 16, 187, 0),
-                        // decoration: TextDecoration.lineThrough,
-                      ),
-                      ),
-                // price section inside same sizedbox
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    
-                    Text(
-                      "Price: ",
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 0, 0, 0),
-                        
-                        // decoration: TextDecoration.lineThrough,
-                      ),
-                      ),
-                      Text(
-                      oldPrice,
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 255, 0, 0),
-                        
-                        decoration: TextDecoration.lineThrough,
-                      ),
-                      ),
-                    
-                  ],
-                ),
-              
+                  ),
+                ],
+              ),
             ],
           ),
         ),

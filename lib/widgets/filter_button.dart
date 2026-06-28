@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopease/widgets/wishlist_card.dart';
 
 Widget filterButton({required IconData icon, required String title}) {
   return Container(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopease/widgets/filter_button.dart';
-import 'package:shopease/widgets/item_card.dart';
+import 'package:shopease/widgets/product_card.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -10,43 +10,50 @@ class SearchScreen extends StatelessWidget {
     final categories = [
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
       {
         "productName": "Electronics",
-        "image": "assets/images/electronics.png",
+        "image":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
         "currentPrice": "Rs. 10000",
         "oldPrice": "Rs. 12000",
       },
@@ -199,10 +206,10 @@ class SearchScreen extends StatelessWidget {
                   childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) {
-                  return itemCard(
-                    productName: categories[index]["productName"] as String,
-                    image: categories[index]["image"] as String,
-                    currentPrice: categories[index]["currentPrice"] as String,
+                  return ProductCard(
+                    productTitle: categories[index]["productName"] as String,
+                    imageUrl: categories[index]["image"] as String,
+                    newPrice: categories[index]["currentPrice"] as String,
                     oldPrice: categories[index]["oldPrice"] as String,
                   );
                 },
