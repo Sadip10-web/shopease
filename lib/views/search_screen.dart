@@ -77,7 +77,7 @@ class SearchScreen extends StatelessWidget {
           leading: BackButton(
             color: Colors.black,
             onPressed: () {
-              Get.back();
+              Get.off(() => HomeScreen());
             },
           ),
         ),
@@ -95,7 +95,7 @@ class SearchScreen extends StatelessWidget {
                   hintText: "Search here",
 
                   prefixIcon: IconButton(
-                    icon: const Icon(Icons.search, color: Colors.grey),
+                    icon: const Icon(Icons.search, color: Color(0xFF7A5AF8)),
                     onPressed: () {
                       // Add your search logic here
                     },

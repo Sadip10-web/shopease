@@ -47,7 +47,7 @@ class CategoryPage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: "Search here",
 
-                prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                prefixIcon: const Icon(Icons.search, color: Color(0xFF7A5AF8)),
 
                 filled: true,
                 fillColor: Colors.white,

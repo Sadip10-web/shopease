@@ -1,4 +1,3 @@
-
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:gap/gap.dart';
@@ -735,22 +734,17 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   Gap(75),
-
-                
                 ], //children
               ),
             ),
           ),
         ),
 
-
-      // buttom navigation bar added by Pankaj
+        // buttom navigation bar added by Pankaj
         extendBody: true,
         bottomNavigationBar: ButtomNavigationBar(),
 
-// navigation bar ends here
-
-
+        // navigation bar ends here
       ),
     );
   }
