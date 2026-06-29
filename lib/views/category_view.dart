@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopease/widgets/buttomNavigationBar.dart';
 import 'package:shopease/widgets/category_card.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -124,6 +125,15 @@ class CategoryPage extends StatelessWidget {
           ],
         ),
       ),
+
+      // buttom navigation bar added by Pankaj
+        
+        extendBody: true,
+        bottomNavigationBar: ButtomNavigationBar(),
+
+      // navigation bar ends here
+
+      
     );
   }
 }

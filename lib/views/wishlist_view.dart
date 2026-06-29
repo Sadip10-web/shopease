@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:shopease/widgets/buttomNavigationBar.dart';
 import 'package:shopease/widgets/wishlist_card.dart';
 
 class Wishlistview extends StatefulWidget {
@@ -186,6 +189,15 @@ class _WishlistviewState extends State<Wishlistview> {
           ),
         ],
       ),
+
+        // buttom navigation bar added by Pankaj
+        extendBody: true,
+        bottomNavigationBar: ButtomNavigationBar(),
+
+        // navigation bar ends here
+
+
     );
   }
 }
+
