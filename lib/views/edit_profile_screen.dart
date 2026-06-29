@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:shopease/widgets/buttomNavigationBar.dart';
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/emailfield.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
@@ -150,6 +151,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ],
           ),
         ),
+
+      // buttom navigation bar added by Pankaj
+        
+        extendBody: true,
+        bottomNavigationBar: ButtomNavigationBar(),
+
+      // navigation bar ends here
+
+
       ),
     );
   }
