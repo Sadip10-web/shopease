@@ -1,4 +1,9 @@
+// categoryScreen
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/search_screen.dart';
 import 'package:shopease/widgets/category_card.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -17,7 +22,12 @@ class CategoryPage extends StatelessWidget {
           "Categories",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        leading: const BackButton(color: Colors.black),
+        leading: BackButton(
+          color: Colors.black,
+          onPressed: () {
+            Get.off(() => HomeScreen());
+          },
+        ),
       ),
 
       body: SingleChildScrollView(
@@ -29,6 +39,10 @@ class CategoryPage extends StatelessWidget {
           children: [
             /// Search Bar
             TextField(
+              readOnly: true,
+              onTap: () {
+                Get.to(() => SearchScreen());
+              },
               decoration: InputDecoration(
                 hintText: "Search here",
 

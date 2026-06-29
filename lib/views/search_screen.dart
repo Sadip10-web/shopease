@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopease/controller/filter_controller.dart';
+import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/widgets/filter_button.dart';
 import 'package:shopease/widgets/product_card.dart';
 
@@ -71,7 +74,12 @@ class SearchScreen extends StatelessWidget {
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
 
-          leading: const BackButton(color: Colors.black),
+          leading: BackButton(
+            color: Colors.black,
+            onPressed: () {
+              Get.back();
+            },
+          ),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -82,13 +90,57 @@ class SearchScreen extends StatelessWidget {
             children: [
               /// Search Bar
               TextField(
+                autofocus: true,
                 decoration: InputDecoration(
                   hintText: "Search here",
 
-                  prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                  prefixIcon: IconButton(
+                    icon: const Icon(Icons.search, color: Colors.grey),
+                    onPressed: () {
+                      // Add your search logic here
+                    },
+                  ),
 
-                  suffixIcon: Icon(Icons.tune, color: Color(0xFF7A5AF8)),
-
+                  // suffixIcon: MenuAnchor(
+                  //   builder: (context, controller, child) {
+                  //     return IconButton(
+                  //       icon: const Icon(Icons.tune, color: Color(0xFF7A5AF8)),
+                  //       onPressed: () {
+                  //         if (controller.isOpen) {
+                  //           controller.close();
+                  //         } else {
+                  //           controller.open();
+                  //         }
+                  //       },
+                  //     );
+                  //   },
+                  //   menuChildren: [
+                  //     MenuItemButton(
+                  //       onPressed: () {
+                  //         print("Price selected");
+                  //       },
+                  //       child: const Text("Price"),
+                  //     ),
+                  //     MenuItemButton(
+                  //       onPressed: () {
+                  //         print("Category selected");
+                  //       },
+                  //       child: const Text("Category"),
+                  //     ),
+                  //     MenuItemButton(
+                  //       onPressed: () {
+                  //         print("Rating selected");
+                  //       },
+                  //       child: const Text("Rating"),
+                  //     ),
+                  //     MenuItemButton(
+                  //       onPressed: () {
+                  //         print("Reset filters");
+                  //       },
+                  //       child: const Text("Reset Filters"),
+                  //     ),
+                  //   ],
+                  // ),
                   filled: true,
                   fillColor: Colors.white,
 
@@ -149,12 +201,17 @@ class SearchScreen extends StatelessWidget {
                           ),
                         ),
 
-                        Text(
-                          "Clear All",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Color(0xFF7A5AF8),
-                            fontWeight: FontWeight.bold,
+                        InkWell(
+                          onTap: () {
+                            Get.find<FilterController>().clearAllFilters();
+                          },
+                          child: const Text(
+                            "Clear All",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xFF7A5AF8),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],
@@ -166,25 +223,53 @@ class SearchScreen extends StatelessWidget {
                         Expanded(
                           child: filterButton(
                             icon: Icons.local_offer_outlined,
-                            title: 'Category',
+                            title: "Category",
+                            options: const [
+                              "Electronics",
+                              "Fashion",
+                              "Furniture",
+                              "Groceries",
+                            ],
                           ),
                         ),
 
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 5),
 
                         Expanded(
                           child: filterButton(
-                            icon: Icons.shield_outlined,
-                            title: 'Brand',
+                            icon: Icons.shopping_bag,
+                            title: "Brand",
+                            options: const [
+                              "Apple",
+                              "Samsung",
+                              "Nike",
+                              "Adidas",
+                            ],
                           ),
                         ),
 
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 5),
 
                         Expanded(
                           child: filterButton(
                             icon: Icons.attach_money,
-                            title: 'Price',
+                            title: "Price",
+                            options: const [
+                              "Under Rs.500",
+                              "Rs.500 - 1000",
+                              "Rs.1000 - 5000",
+                              "Above Rs.5000",
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(width: 5),
+
+                        Expanded(
+                          child: filterButton(
+                            icon: Icons.star,
+                            title: "Rating",
+                            options: const ["5 ★", "4 ★ & Up", "3 ★ & Up"],
                           ),
                         ),
                       ],
