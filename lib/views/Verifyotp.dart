@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/changepassword_screen.dart';
 import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/otpfield.dart';
@@ -29,7 +31,7 @@ class Verifyotp extends StatelessWidget {
            ),
            Gap(20),
            
-           ButtonWidget(buttonText: "Verify", backgroundColor:  Color(0xFF6D28FF), onPressed: () {  }, color: Colors.white,)
+           ButtonWidget(buttonText: "Verify", backgroundColor:  Color(0xFF6D28FF), onPressed: () {Get.off(()=>ChangepasswordScreen());  }, color: Colors.white,)
 
           ],
           
