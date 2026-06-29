@@ -1,4 +1,3 @@
-// // import 'dart:ffi';
 
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
@@ -393,6 +392,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:shopease/widgets/buttomNavigationBar.dart';
 import 'package:shopease/widgets/featured_card.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -408,7 +408,7 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(22),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           child: SizedBox(
             child: SingleChildScrollView(
               child: Column(
@@ -665,7 +665,7 @@ class HomeScreen extends StatelessWidget {
                             newPrice: "1200222",
                             productTitle: "Headset",
                           ),
-                          Gap(75),
+                          Spacer(),
                           ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
@@ -684,7 +684,7 @@ class HomeScreen extends StatelessWidget {
                             newPrice: "1200222",
                             productTitle: "Headset",
                           ),
-                          Gap(75),
+                          Spacer(),
                           ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
@@ -703,7 +703,7 @@ class HomeScreen extends StatelessWidget {
                             newPrice: "1200222",
                             productTitle: "Headset",
                           ),
-                          Gap(75),
+                          Spacer(),
                           ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
@@ -722,7 +722,7 @@ class HomeScreen extends StatelessWidget {
                             newPrice: "1200222",
                             productTitle: "Headset",
                           ),
-                          Gap(75),
+                          Spacer(),
                           ProductCard(
                             imageUrl:
                                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnDGMoPVwxaNdwOHBekAEWpCR-T8eEPb7m9OxUV-xxg&s=10",
@@ -734,52 +734,23 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Gap(10),
-                  // search area
-                  FillupWidget(
-                    hintText: "Search Here",
-                    icon: Icons.search,
+                  Gap(75),
 
-                    keyboardType: TextInputType.text,
-                  ),
-                  Gap(10),
-
-                  // tags area
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: SizedBox(
-                      child: Row(
-                        children: [
-                          TagsWidget(label: "All", icon: Icons.travel_explore),
-                          Gap(5),
-                          TagsWidget(label: "Fashion", icon: Icons.checkroom),
-                          Gap(5),
-                          TagsWidget(label: "Wearables", icon: Icons.watch),
-                          Gap(5),
-                          TagsWidget(
-                            label: "Shoes",
-                            icon: Icons.directions_run,
-                          ),
-                          Gap(5),
-                          TagsWidget(
-                            label: "Smartphone",
-                            icon: Icons.smartphone,
-                          ),
-                          Gap(5),
-                          TagsWidget(
-                            label: "Smartphone",
-                            icon: Icons.smartphone,
-                          ),
-                          Gap(5),
-                        ],
-                      ),
-                    ),
-                  ),
+                
                 ], //children
               ),
             ),
           ),
         ),
+
+
+      // buttom navigation bar added by Pankaj
+        extendBody: true,
+        bottomNavigationBar: ButtomNavigationBar(),
+
+// navigation bar ends here
+
+
       ),
     );
   }

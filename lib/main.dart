@@ -5,6 +5,7 @@ import 'package:shopease/views/cartScrenn_view.dart';
 import 'package:shopease/views/category_view.dart';
 import 'package:shopease/views/changepassword_screen.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
+import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/views/order_history_view.dart';
 import 'package:shopease/views/payment_screen.dart';
