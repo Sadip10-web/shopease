@@ -1,6 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/cartScrenn_view.dart';
+import 'package:shopease/views/order_details_view.dart';
+import 'package:shopease/widgets/button_widget.dart';
+
+ValueNotifier<bool> addFavorite = ValueNotifier(false);
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
@@ -55,9 +61,31 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
           centerTitle: true,
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-          ],
+            IconButton(
+              onPressed: () {
+                addFavorite.value = !addFavorite.value;
+              },
+              icon: ValueListenableBuilder(
+                valueListenable: addFavorite,
+                builder: (context, value, child) {
+                  return Icon(
+                    value ? Icons.favorite : Icons.favorite_border,
+                    color: value ? Colors.red : Colors.grey,
+                  );
+                },
+              ),
+            ),
+
+
+            IconButton(
+              onPressed: () {
+                Get.to(() => Cartscreenview());
+              }, 
+              icon: Icon(Icons.shopping_cart)
+            ),
+          ], // Action
+
+
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -233,6 +261,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   ],
                 ),
               ),
+
               //Price
               Padding(
                 padding: const EdgeInsets.all(4.0),
@@ -293,7 +322,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             "The morning breeze drifted through the quiet streets as the city slowly came to life. People hurried toward their destinations, carrying hopes, plans, and the promise of a new day.",
                       ),
                       TextSpan(
-                        text: "Read more",
+                        text: " Read more",
                         style: TextStyle(
                           color: Color(0xFF6D28FF),
                           fontWeight: FontWeight.w600,
@@ -472,47 +501,28 @@ class _ProductDetailState extends State<ProductDetail> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: OutlinedButton.icon(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.shopping_cart_outlined,
-                          color: Color(0xFF6D28FF),
-                        ),
-                        label: Text(
-                          "Add to Cart",
-                          style: TextStyle(
-                            color: Color(0xFF6D28FF),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        style: OutlinedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          side: BorderSide(color: Colors.grey.shade300),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                        ),
+                      child: ButtonWidget(
+                        buttonText: "Add to Card",
+                        backgroundColor: Color(0xffF5F6FA),
+                        color: Color(0xFF6D28FF),
+                        onPressed: () {
+                          Get.to(() => Cartscreenview());
+                        },
+                        icon: Icons.shopping_cart_outlined,
+                        iconColor: Color(0xFF6D28FF),
                       ),
                     ),
+
                     SizedBox(width: 12),
+
                     Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF6D28FF),
-                          elevation: 0,
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                        ),
-                        child: Text(
-                          "Buy Now",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                      child: ButtonWidget(
+                        buttonText: "Buy Now",
+                        backgroundColor: Color(0xFF6D28FF),
+                        color: Colors.white,
+                        onPressed: () {
+                          Get.to(() => OrderDetailsView());
+                        },
                       ),
                     ),
                   ],

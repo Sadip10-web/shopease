@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/order_details_view.dart';
 import 'package:shopease/views/search_screen.dart';
 import 'package:shopease/views/Verifyotp.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // home: SearchScreen(),
-      home: Splashscreen(),
+      home: ProductDetail(),
     );
   }
 }
