@@ -7,6 +7,7 @@ import 'package:shopease/views/changepassword_screen.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/Splashscreen.dart';
 import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/order_details_view.dart';
 import 'package:shopease/views/order_history_view.dart';
 import 'package:shopease/views/payment_screen.dart';
 import 'package:shopease/views/product_detail.dart';
@@ -38,8 +39,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
 
-      home: CategoryPage(),
-      // home: CategoryPage(),
+      // home: SearchScreen(),
+      home: ProductDetail(),
     );
   }
 }
