@@ -251,7 +251,7 @@ class _CartscreenviewState extends State<Cartscreenview> {
           ),
           Expanded(
             child: Container(
-              height: 105,
+              height: 110,
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),

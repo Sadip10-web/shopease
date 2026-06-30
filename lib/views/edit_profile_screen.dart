@@ -152,10 +152,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
 
+        
+
       // buttom navigation bar added by Pankaj
         
-        extendBody: true,
-        bottomNavigationBar: ButtomNavigationBar(),
+        // extendBody: true,
+        // bottomNavigationBar: ButtomNavigationBar(),
 
       // navigation bar ends here
 
