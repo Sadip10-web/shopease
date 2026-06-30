@@ -376,33 +376,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         ),
                       ),
 
-                      const SizedBox(height: 14),
-
-                      SizedBox(
-                        width: double.infinity,
-                        height: isSmall ? 52 : 58,
-                        child: OutlinedButton(
-                          onPressed: cancelPayment,
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                              color: Color(0xFF6D28FF),
-                              width: 1.4,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                          ),
-                          child: Text(
-                            "CANCEL PAYMENT",
-                            style: TextStyle(
-                              color: const Color(0xFF6D28FF),
-                              fontSize: isSmall ? 15 : 18,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ),
-
                       const SizedBox(height: 24),
                     ],
                   ),
