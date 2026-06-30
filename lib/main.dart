@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // home: SearchScreen(),
-      home: SearchScreen(),
+      home: Splashscreen(),
     );
   }
 }
