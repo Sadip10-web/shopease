@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:shopease/views/Verifyotp.dart';
 import 'package:shopease/widgets/Screentitle.dart';
 import 'package:shopease/widgets/button_widget.dart';

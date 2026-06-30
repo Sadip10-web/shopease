@@ -57,9 +57,7 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
                 icon: ValueListenableBuilder(
                   valueListenable: showPassword,
                   builder: (context, value, child) {
-                    return Icon(
-                      value ? Icons.visibility : Icons.visibility_off,
-                    );
+                    return Icon(value ? Icons.visibility : Icons.visibility_off);  
                   },
                 ),
               ),

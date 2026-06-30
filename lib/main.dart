@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/Splashscreen.dart';
+import 'package:shopease/views/cartScrenn_view.dart';
+import 'package:shopease/views/category_view.dart';
+import 'package:shopease/views/changepassword_screen.dart';
+import 'package:shopease/views/edit_profile_screen.dart';
+import 'package:shopease/views/Splashscreen.dart';
+import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/order_details_view.dart';
+import 'package:shopease/views/order_history_view.dart';
+import 'package:shopease/views/payment_screen.dart';
+import 'package:shopease/views/product_detail.dart';
+import 'package:shopease/views/search_screen.dart';
 import 'package:shopease/views/Verifyotp.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/forgot_password_view.dart';
@@ -19,15 +30,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.white),
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: LoginView(),
+
+      // home: SearchScreen(),
+      home: ProductDetail(),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:shopease/widgets/buttomNavigationBar.dart';
 import 'package:shopease/widgets/button_widget.dart';
+import 'package:shopease/widgets/emailfield.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -88,122 +90,76 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               // Name
               Gap(12),
 
-              Text(
-                "Name",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              FillupWidget(
+              // Name
+              EmailField(
+                text: "Name",
+                hintText: "John Doe",
                 icon: Icons.person,
                 keyboardType: TextInputType.text,
-                hintText: 'John Doe',
               ),
 
-              Gap(30),
 
               //Email
-              Text(
-                "Email",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              Gap(12),
-              FillupWidget(
+              EmailField(
+                text: "Email",
+                hintText: "john@gmail.com",
                 icon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
-                hintText: 'john@gmail.com',
               ),
 
-              //PhoneNumber
-              Gap(30),
-
-              Text(
-                "Phone Number",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              Gap(8),
-              FillupWidget(
+              // phone number
+              EmailField(
+                text: "Phone Number",
+                hintText: "+977 9800000000",
                 icon: Icons.phone,
                 keyboardType: TextInputType.number,
-                hintText: '+977 980000000',
               ),
-
-              Gap(30),
 
               //DOB
-              Text(
-                "Date of Birth",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              Gap(8),
-              FillupWidget(
+              EmailField(
+                text: "Date of Birth",
+                hintText: "Jan 01, 1995",
                 icon: Icons.date_range,
                 keyboardType: TextInputType.datetime,
-                hintText: 'Jan 01, 1995',
               ),
-
-              Gap(30),
 
               //Gender
-              Text(
-                "Gender",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              Gap(8),
-              FillupWidget(
+              EmailField(
+                text: "Gender",
+                hintText: "Male",
                 icon: Icons.person,
                 keyboardType: TextInputType.text,
-                hintText: 'Male',
               ),
-
-              Gap(30),
 
               //Address
-              Text(
-                "Address",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xff5B6475),
-                ),
-              ),
-              Gap(8),
-              FillupWidget(
+              EmailField(
+                text: "Address",
+                hintText: "Pokhara, Kaski",
                 icon: Icons.location_on,
                 keyboardType: TextInputType.text,
-                hintText: 'Pokhara, Kaski',
               ),
-
-              Gap(30),
 
               //Button
               ButtonWidget(
                 buttonText: "Save Changes",
                 backgroundColor: Color(0xFF6D28FF),
-                onPressed: () {},
+                onPressed: () {
+
+                },
                 color: Colors.white,
               ),
             ],
           ),
         ),
+
+      // buttom navigation bar added by Pankaj
+        
+        extendBody: true,
+        bottomNavigationBar: ButtomNavigationBar(),
+
+      // navigation bar ends here
+
+
       ),
     );
   }
