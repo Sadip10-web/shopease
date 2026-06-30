@@ -162,9 +162,9 @@ class _WishlistviewState extends State<Wishlistview> {
               itemCount: wishlist.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 15,
-                childAspectRatio: 0.70,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 10,
+                childAspectRatio: 0.90,
               ),
               itemBuilder: (context, index) {
                 return WishlistCard(
@@ -190,14 +190,11 @@ class _WishlistviewState extends State<Wishlistview> {
         ],
       ),
 
-        // buttom navigation bar added by Pankaj
-        extendBody: true,
-        bottomNavigationBar: ButtomNavigationBar(),
+      // buttom navigation bar added by Pankaj
+      extendBody: true,
+      bottomNavigationBar: ButtomNavigationBar(),
 
-        // navigation bar ends here
-
-
+      // navigation bar ends here
     );
   }
 }
-
