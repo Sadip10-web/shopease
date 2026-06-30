@@ -5,13 +5,10 @@ class OrderSuccessScreen extends StatefulWidget {
   const OrderSuccessScreen({super.key});
 
   @override
-  State<OrderSuccessScreen> createState() =>
-      _OrderSuccessScreenState();
+  State<OrderSuccessScreen> createState() => _OrderSuccessScreenState();
 }
 
-class _OrderSuccessScreenState
-    extends State<OrderSuccessScreen> {
-
+class _OrderSuccessScreenState extends State<OrderSuccessScreen> {
   late ConfettiController confettiController;
 
   @override
@@ -31,423 +28,241 @@ class _OrderSuccessScreenState
     super.dispose();
   }
 
+  void viewOrders() {
+    // Navigate to your orders screen here.
+  }
+
+  void continueShopping() {
+    Navigator.popUntil(context, (route) => route.isFirst);
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       backgroundColor: Colors.white,
 
       body: SafeArea(
-
         child: Stack(
-
           alignment: Alignment.topCenter,
-
           children: [
-
-            /// Confetti
-
             ConfettiWidget(
-
-              confettiController:
-                  confettiController,
-
-              blastDirectionality:
-                  BlastDirectionality.explosive,
-
+              confettiController: confettiController,
+              blastDirectionality: BlastDirectionality.explosive,
               shouldLoop: false,
-
               numberOfParticles: 30,
-
               emissionFrequency: 0.04,
-
               gravity: 0.15,
-
               colors: const [
-
                 Color(0xFF4CD137),
-
                 Color(0xFFA29BFE),
-
                 Color(0xFFFDCB6E),
-
                 Color(0xFFB8E994),
               ],
             ),
 
             Padding(
-
-              padding:
-                  const EdgeInsets.symmetric(
-                horizontal: 24,
-              ),
-
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
-
                 children: [
-
-                  const SizedBox(height: 80),
-
-                  /// Success icon
+                  const SizedBox(height: 85),
 
                   Stack(
-
                     alignment: Alignment.center,
-
                     children: [
-
                       Container(
-
-                        width: 130,
-
-                        height: 130,
-
-                        decoration: const BoxDecoration(
-
+                        width: 160,
+                        height: 160,
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-
-                          color: Color(
-                            0xFFF1F3F2,
-                          ),
+                          color: const Color(0xFF4CD137).withOpacity(0.08),
                         ),
                       ),
 
                       Container(
-
-                        width: 60,
-
-                        height: 60,
-
-                        decoration: const BoxDecoration(
-
+                        width: 115,
+                        height: 115,
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-
-                          color: Color(
-                            0xFF4CD137,
-                          ),
+                          color: const Color(0xFF4CD137).withOpacity(0.14),
                         ),
+                      ),
 
+                      Container(
+                        width: 82,
+                        height: 82,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFF4CD137),
+                        ),
                         child: const Icon(
-
                           Icons.check,
-
                           color: Colors.white,
-
-                          size: 40,
+                          size: 50,
                         ),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 40),
 
                   const Text(
-
                     "Order Successful",
-
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-
                       fontSize: 38,
-
-                      fontWeight:
-                          FontWeight.bold,
-
-                      color:
-                          Color(0xFF09122C),
+                      fontWeight: FontWeight.w900,
+                      color: Color(0xFF09122C),
                     ),
                   ),
 
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 16),
 
                   const Text(
-
                     "Thank you! Your order has been placed successfully.",
-
                     textAlign: TextAlign.center,
-
                     style: TextStyle(
-
-                      fontSize: 18,
-
-                      color: Colors.grey,
+                      fontSize: 19,
+                      height: 1.5,
+                      color: Color(0xFF6B7280),
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
 
-                  const SizedBox(height: 45),
-
-                  /// Order card
+                  const SizedBox(height: 48),
 
                   Container(
-
-                    padding:
-                        const EdgeInsets.all(
-                      22,
-                    ),
-
+                    width: double.infinity,
+                    margin: const EdgeInsets.symmetric(horizontal: 26),
+                    padding: const EdgeInsets.all(22),
                     decoration: BoxDecoration(
-
-                      color: const Color(
-                        0xFFF2F5F4,
-                      ),
-
-                      borderRadius:
-                          BorderRadius.circular(
-                        20,
-                      ),
+                      color: const Color(0xFFF1FAF2),
+                      borderRadius: BorderRadius.circular(20),
                     ),
-
                     child: Row(
-
                       children: [
-
                         Container(
-
-                          width: 60,
-
-                          height: 60,
-
-                          decoration:
-                              const BoxDecoration(
-
-                            shape:
-                                BoxShape.circle,
-
-                            color:
-                                Color(
-                              0xFFD7F0D5,
-                            ),
+                          width: 72,
+                          height: 72,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFFDDF7DF),
                           ),
-
                           child: const Icon(
-
                             Icons.receipt_long,
-
-                            color:
-                                Color(
-                              0xFF4CD137,
-                            ),
+                            color: Color(0xFF4CD137),
+                            size: 34,
                           ),
                         ),
 
-                        const SizedBox(
-                          width: 18,
-                        ),
+                        const SizedBox(width: 22),
 
-                        Column(
-
-                          crossAxisAlignment:
-                              CrossAxisAlignment
-                                  .start,
-
-                          children: const [
-
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
                             Text(
-
                               "Order ID:",
-
-                              style:
-                                  TextStyle(
-
-                                fontSize:
-                                    18,
-
-                                color:
-                                    Colors
-                                        .grey,
+                              style: TextStyle(
+                                fontSize: 19,
+                                color: Color(0xFF6B7280),
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
 
-                            SizedBox(
-                              height: 5,
-                            ),
+                            SizedBox(height: 6),
 
                             Text(
-
                               "#12345",
-
-                              style:
-                                  TextStyle(
-
-                                fontSize:
-                                    26,
-
-                                color:
-                                    Color(
-                                  0xFF4CD137,
-                                ),
-
-                                fontWeight:
-                                    FontWeight
-                                        .w500,
+                              style: TextStyle(
+                                fontSize: 28,
+                                color: Color(0xFF4CD137),
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
 
                   const Spacer(),
 
-                  /// View orders button
-
                   SizedBox(
-
-                    width:
-                        double.infinity,
-
-                    height: 60,
-
+                    width: double.infinity,
+                    height: 64,
                     child: ElevatedButton(
-
-                      style:
-                          ElevatedButton
-                              .styleFrom(
-
+                      style: ElevatedButton.styleFrom(
                         elevation: 0,
-
-                        backgroundColor:
-                            const Color(
-                          0xFF6D28FF,
-                        ),
-
-                        shape:
-                            RoundedRectangleBorder(
-
-                          borderRadius:
-                              BorderRadius.circular(
-                            18,
-                          ),
+                        backgroundColor: const Color(0xFF6D28FF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
                         ),
                       ),
-
-                      onPressed: () {},
-
+                      onPressed: viewOrders,
                       child: const Row(
-
-                        mainAxisAlignment:
-                            MainAxisAlignment
-                                .center,
-
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           Icon(
-                            Icons.shopping_basket,
-                            color:
-                                Colors.white,
+                            Icons.shopping_basket_outlined,
+                            color: Colors.white,
+                            size: 28,
                           ),
 
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 14),
 
                           Text(
-
                             "View Orders",
-
-                            style:
-                                TextStyle(
-
-                              fontSize:
-                                  20,
-
-                              fontWeight:
-                                  FontWeight.w500,
-                              color: Colors.white
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 20),
-
-                  /// Continue shopping button
+                  const SizedBox(height: 22),
 
                   SizedBox(
-
-                    width:
-                        double.infinity,
-
-                    height: 60,
-
-                    child:
-                        OutlinedButton(
-
-                      style:
-                          OutlinedButton
-                              .styleFrom(
-
-                        side:
-                            const BorderSide(
-
-                          color:
-                              Color(
-                            0xFF6D28FF,
-                          ),
+                    width: double.infinity,
+                    height: 64,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(
+                          color: Color(0xFF6D28FF),
+                          width: 1.6,
                         ),
-
-                        shape:
-                            RoundedRectangleBorder(
-
-                          borderRadius:
-                              BorderRadius.circular(
-                            18,
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
                         ),
                       ),
-
-                      onPressed: () {},
-
+                      onPressed: continueShopping,
                       child: const Row(
-
-                        mainAxisAlignment:
-                            MainAxisAlignment
-                                .center,
-
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           Icon(
-
-                            Icons.shopping_bag,
-
-                            color:
-                                Color(
-                              0xFF6D28FF,
-                            ),
+                            Icons.shopping_bag_outlined,
+                            color: Color(0xFF6D28FF),
+                            size: 28,
                           ),
 
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 14),
 
                           Text(
-
                             "Continue Shopping",
-
-                            style:
-                                TextStyle(
-
-                              color:
-                                  Color(
-                                0xFF6D28FF,
-                              ),
-
-                              fontSize:
-                                  20,
-
-                              fontWeight:
-                                  FontWeight.w500,
+                            style: TextStyle(
+                              color: Color(0xFF6D28FF),
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 42),
                 ],
               ),
             ),
