@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
 
-      // home: SearchScreen(),
-      home: ProductDetail(),
+      // home: SearchScreen()
+      home: PaymentScreen(),
     );
   }
 }
