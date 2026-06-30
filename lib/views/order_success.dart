@@ -1,5 +1,8 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/order_history_view.dart';
 
 class OrderSuccessScreen extends StatefulWidget {
   const OrderSuccessScreen({super.key});
@@ -233,7 +236,9 @@ class _OrderSuccessScreenState extends State<OrderSuccessScreen> {
                                     borderRadius: BorderRadius.circular(18),
                                   ),
                                 ),
-                                onPressed: viewOrders,
+                                onPressed: (){
+                                  Get.off(() => OrderHistoryView());
+                                },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -273,7 +278,9 @@ class _OrderSuccessScreenState extends State<OrderSuccessScreen> {
                                     borderRadius: BorderRadius.circular(18),
                                   ),
                                 ),
-                                onPressed: continueShopping,
+                                onPressed: (){
+                                  Get.off(() => HomeScreen());
+                                },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
