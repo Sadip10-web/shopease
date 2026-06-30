@@ -71,7 +71,11 @@ class SearchScreen extends StatelessWidget {
           centerTitle: true,
           title: const Text(
             "Search",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
+            ),
           ),
 
           leading: BackButton(
