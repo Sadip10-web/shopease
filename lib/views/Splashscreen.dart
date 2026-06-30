@@ -35,10 +35,12 @@ class _SplashscreenState extends State<Splashscreen> {
             children: [
               Image.asset("assets/images/shopeasebag.png",height: 60,width: 64,),
               Text("ShopEase",style: TextStyle(
-                fontSize: 50,color: Colors.white
+                fontSize: 50,
+                color: Colors.white,
+                fontFamily: 'Poppins'
                 ),
                 ),
-                Text("Shop Smarter,Live Better...",style: TextStyle(fontSize: 14,color: Colors.white),)
+                Text("Shop Smarter,Live Better...",style: TextStyle(fontSize: 14,color: Colors.white,fontFamily: 'Poppins' ),)
             ],
           ),
         ),
