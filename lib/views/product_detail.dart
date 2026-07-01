@@ -1,3 +1,5 @@
+// product detail
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -76,16 +78,13 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
             ),
 
-
             IconButton(
               onPressed: () {
                 Get.to(() => Cartscreenview());
-              }, 
-              icon: Icon(Icons.shopping_cart)
+              },
+              icon: Icon(Icons.shopping_cart),
             ),
           ], // Action
-
-
         ),
         body: SingleChildScrollView(
           child: Column(
