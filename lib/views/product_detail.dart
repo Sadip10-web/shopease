@@ -86,6 +86,7 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
         ],
       ),
+      
 
 
       body: SingleChildScrollView(
