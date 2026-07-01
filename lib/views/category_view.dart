@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopease/widgets/buttomNavigationBar.dart';
+import 'package:shopease/widgets/bottomNavigationBar.dart';
 import 'package:shopease/widgets/category_card.dart';
 
 class CategoryPage extends StatelessWidget {

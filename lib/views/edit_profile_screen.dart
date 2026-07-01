@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:shopease/widgets/buttomNavigationBar.dart';
+import 'package:shopease/widgets/bottomNavigationBar.dart';
 import 'package:shopease/widgets/button_widget.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 
