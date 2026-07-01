@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/payment_screen.dart';
 
 class Cartscreenview extends StatefulWidget {
   const Cartscreenview({super.key});
@@ -66,7 +68,9 @@ class _CartscreenviewState extends State<Cartscreenview> {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => PaymentScreen());
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 87, 7, 236),
                   padding: const EdgeInsets.symmetric(
@@ -250,100 +254,102 @@ class _CartscreenviewState extends State<Cartscreenview> {
             checkColor: Colors.white,
           ),
           Expanded(
-            child: Container(
-              height: 110,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow: const [
-                  BoxShadow(blurRadius: 5, color: Colors.black12),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network(
-                      imageUrl,
-                      width: 70,
-                      height: 70,
-                      fit: BoxFit.cover,
+            child: Card(
+              child: Container(
+                height: 110,
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(blurRadius: 5, color: Colors.black12),
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(
+                        imageUrl,
+                        width: 70,
+                        height: 70,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 15),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          productName,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            productName,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          shopName,
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                        const Spacer(),
-                        Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Rs. ${products[index]["currentPrice"]}",
-                                  style: const TextStyle(
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold,
+                          const SizedBox(height: 2),
+                          Text(
+                            shopName,
+                            style: const TextStyle(color: Colors.grey),
+                          ),
+                          const Spacer(),
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Rs. ${products[index]["currentPrice"]}",
+                                    style: const TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  "Rs. ${products[index]["oldPrice"]}",
-                                  style: const TextStyle(
-                                    color: Colors.red,
-                                    decoration: TextDecoration.lineThrough,
+                                  Text(
+                                    "Rs. ${products[index]["oldPrice"]}",
+                                    style: const TextStyle(
+                                      color: Colors.red,
+                                      decoration: TextDecoration.lineThrough,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (quantity[index] > 1) {
-                                        quantity[index]--;
-                                      }
-                                    });
-                                  },
-                                  icon: const Icon(
-                                    Icons.indeterminate_check_box_outlined,
+                                ],
+                              ),
+                              const Spacer(),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        if (quantity[index] > 1) {
+                                          quantity[index]--;
+                                        }
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.indeterminate_check_box_outlined,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  quantity[index].toString(),
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    setState(() => quantity[index]++);
-                                  },
-                                  icon: const Icon(Icons.add_box_outlined),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                                  Text(
+                                    quantity[index].toString(),
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(() => quantity[index]++);
+                                    },
+                                    icon: const Icon(Icons.add_box_outlined),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

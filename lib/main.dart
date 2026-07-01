@@ -51,7 +51,8 @@ class MyApp extends StatelessWidget {
       ),
 
       // home: SearchScreen(),
-      home: EditProfileScreen(),
+      home: HomeScreen(),
+      // home: Splashscreen(),
     );
   }
 }

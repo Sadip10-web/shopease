@@ -21,7 +21,11 @@ class CategoryPage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Categories",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 28,
+          ),
         ),
         leading: BackButton(
           color: Colors.black,
