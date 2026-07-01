@@ -1,3 +1,5 @@
+// search screen
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/controller/filter_controller.dart';
@@ -71,7 +73,11 @@ class SearchScreen extends StatelessWidget {
           centerTitle: true,
           title: const Text(
             "Search",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
+            ),
           ),
 
           leading: BackButton(
