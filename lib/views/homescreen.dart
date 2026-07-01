@@ -391,7 +391,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:shopease/widgets/buttomNavigationBar.dart';
+import 'package:shopease/widgets/bottomNavigationBar.dart';
 import 'package:shopease/widgets/featured_card.dart';
 import 'package:shopease/widgets/fillUp_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -636,22 +636,31 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   Gap(10),
-                  // for you
-                  Row(
-                    children: [
-                      Text(
-                        "For You ",
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
+
+
+                  // for you area
+                  //
+                  // 
+                  Container(
+                    width: double.infinity,
+                    color: Colors.transparent,
+                    
+                    child: Row(
+                      children: [
+                        Text(
+                          "For You ",
+                          style: TextStyle(
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Icon(
-                        CupertinoIcons.bag_fill,
-                        color: const Color.fromARGB(255, 255, 115, 0),
-                        size: 35,
-                      ),
-                    ],
+                        Icon(
+                          CupertinoIcons.bag_fill,
+                          color: const Color.fromARGB(255, 255, 115, 0),
+                          size: 35,
+                        ),
+                      ],
+                    ),
                   ),
                   Column(
                     children: [
