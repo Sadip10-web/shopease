@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/product_detail.dart';
+
+// Change the path if needed
 
 class ProductCard extends StatelessWidget {
   final String imageUrl;
   final String productTitle;
   final String oldPrice;
   final String newPrice;
+
   const ProductCard({
     super.key,
     required this.imageUrl,
@@ -16,66 +21,80 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      child: SizedBox(
-        height: 305,
-        width: 200,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Expanded(
-                child: Image.network(
-                  imageUrl,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Row(
-                children: [
-                  Text(productTitle, style: TextStyle(fontSize: 18)),
-                  Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      // Icon(CupertinoIcons.heart_fill,
-                      // color: Colors.red,);
-                    },
-                    icon: Icon(CupertinoIcons.heart, color: Colors.red),
+    return InkWell(
+      borderRadius: BorderRadius.circular(12),
+      onTap: () {
+        Get.to(() => ProductDetail());
+      },
+      child: Card(
+        elevation: 3,
+        child: SizedBox(
+          height: 305,
+          width: 200,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
+                  child: Image.network(
+                    imageUrl,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
-                ],
-              ),
-              Text(
-                newPrice,
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 16, 187, 0),
-                  // decoration: TextDecoration.lineThrough,
                 ),
-              ),
-              // price section inside same sizedbox
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Price: ",
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 0, 0, 0),
 
-                      // decoration: TextDecoration.lineThrough,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        productTitle,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        // TODO: Add favorite functionality
+                      },
+                      icon: const Icon(CupertinoIcons.heart, color: Colors.red),
+                    ),
+                  ],
+                ),
+
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    newPrice,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 16, 187, 0),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    oldPrice,
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 0, 0),
+                ),
 
-                      decoration: TextDecoration.lineThrough,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text(
+                      "Price: ",
+                      style: TextStyle(color: Colors.black),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Text(
+                      oldPrice,
+                      style: const TextStyle(
+                        color: Colors.red,
+                        decoration: TextDecoration.lineThrough,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
