@@ -1,3 +1,5 @@
+// product detail
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -91,6 +93,26 @@ class _ProductDetailState extends State<ProductDetail> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(22.0),
+              icon: ValueListenableBuilder(
+                valueListenable: addFavorite,
+                builder: (context, value, child) {
+                  return Icon(
+                    value ? Icons.favorite : Icons.favorite_border,
+                    color: value ? Colors.red : Colors.grey,
+                  );
+                },
+              ),
+            ),
+
+            IconButton(
+              onPressed: () {
+                Get.to(() => Cartscreenview());
+              },
+              icon: Icon(Icons.shopping_cart),
+            ),
+          ], // Action
+        ),
+        body: SingleChildScrollView(
           child: Column(
             children: [
               imageSlider(),
