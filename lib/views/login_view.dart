@@ -18,36 +18,36 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22.0),
+    return Scaffold(
+      backgroundColor: Colors.white,
+    
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
+          
               // / back icon and title
               ScreenTitle(
                 text: "LOGIN"
               ),
-
+          
               // Email
               EmailField(
                 text: "Email", 
-                hintText: 'Enter your email', 
+                hintText: "Enter your email", 
                 icon: Icons.email,
               ),
-
-
+          
+          
               // password
               PasswordFieldWidget(
                 text: "Password", 
                 hintText: "Enter your password"
               ),
               
-
+          
               // forget text
               Row(
                 children: [
@@ -57,7 +57,7 @@ class LoginView extends StatelessWidget {
                       Get.to(() => ForgotPasswordView());
                     },
                     child: Text(
-                      "Forgot Password",
+                      "Forgot Password?",
                       style: TextStyle(
                         color: Color(0xFF6D28FF),
                         fontWeight: FontWeight.bold,
@@ -67,9 +67,9 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-
+          
               Gap(28),
-
+          
               // login button
              ButtonWidget(
               buttonText: "Login", 
@@ -78,9 +78,9 @@ class LoginView extends StatelessWidget {
                 Get.to(() => HomeScreen());
               }, color: Colors.white,
             ),
-
+          
               Gap(25),
-
+          
               // sign Up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -105,8 +105,8 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                   ),
-
-
+          
+          
                 ],
               ),
             ],

@@ -1,5 +1,10 @@
+// categoryScreen
+
 import 'package:flutter/material.dart';
-import 'package:shopease/widgets/bottomNavigationBar.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/search_screen.dart';
+import 'package:shopease/widgets/buttomNavigationBar.dart';
 import 'package:shopease/widgets/category_card.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -16,9 +21,18 @@ class CategoryPage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Categories",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 28,
+          ),
         ),
-        leading: const BackButton(color: Colors.black),
+        leading: BackButton(
+          color: Colors.black,
+          onPressed: () {
+            Get.off(() => HomeScreen());
+          },
+        ),
       ),
 
       body: SingleChildScrollView(
@@ -30,10 +44,14 @@ class CategoryPage extends StatelessWidget {
           children: [
             /// Search Bar
             TextField(
+              readOnly: true,
+              onTap: () {
+                Get.to(() => SearchScreen());
+              },
               decoration: InputDecoration(
                 hintText: "Search here",
 
-                prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                prefixIcon: const Icon(Icons.search, color: Color(0xFF7A5AF8)),
 
                 filled: true,
                 fillColor: Colors.white,
@@ -127,13 +145,10 @@ class CategoryPage extends StatelessWidget {
       ),
 
       // buttom navigation bar added by Pankaj
-        
-        extendBody: true,
-        bottomNavigationBar: ButtomNavigationBar(),
+      extendBody: true,
+      bottomNavigationBar: ButtomNavigationBar(),
 
       // navigation bar ends here
-
-      
     );
   }
 }
