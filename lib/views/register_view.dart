@@ -11,74 +11,72 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                // back icon and title
-                ScreenTitle(
-                  text: "Register"
-                ),
-                
-
-                // Name
-                EmailField(
-                  text: "Name", 
-                  hintText: "Enter your name", 
-                  icon: Icons.person
-                ),
-
-
-                // Email
-                EmailField(
-                  text: "Email",
-                  hintText: "Enter your email",
-                  icon: Icons.email,
-                ),
-
-
-
-                // password
-                PasswordFieldWidget(
-                  text: "Password", 
-                  hintText: "Enter your password"
-                ),
-
-
-                // confirm password
-                PasswordFieldWidget(
-                  text: "Confirm Password", 
-                  hintText: "Confirm your password"
-                ),
-
-
-                // create account button
-                Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 50,
-                        width: double.infinity,
-                        child: ButtonWidget(
-                          buttonText: "Create Account",
-                          backgroundColor: Color(0xFF6D28FF), 
-                          onPressed: () { 
-                            Get.to(() => LoginView());
-                           }, color: Colors.white,
-                        ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+    
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+    
+              // back icon and title
+              ScreenTitle(
+                text: "Register"
+              ),
+              
+    
+              // Name
+              EmailField(
+                text: "Name", 
+                hintText: "Enter your name", 
+                icon: Icons.person
+              ),
+    
+    
+              // Email
+              EmailField(
+                text: "Email",
+                hintText: "Enter your email",
+                icon: Icons.email,
+              ),
+    
+    
+    
+              // password
+              PasswordFieldWidget(
+                text: "Password", 
+                hintText: "Enter your password"
+              ),
+    
+    
+              // confirm password
+              PasswordFieldWidget(
+                text: "Confirm Password", 
+                hintText: "Confirm your password"
+              ),
+    
+    
+              // create account button
+              Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: ButtonWidget(
+                        buttonText: "Create Account",
+                        backgroundColor: Color(0xFF6D28FF), 
+                        onPressed: () { 
+                          Get.to(() => LoginView());
+                         }, color: Colors.white,
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
