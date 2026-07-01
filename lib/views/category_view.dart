@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/homescreen.dart';
 import 'package:shopease/views/search_screen.dart';
-import 'package:shopease/widgets/buttomNavigationBar.dart';
+import 'package:shopease/widgets/bottomNavigationBar.dart';
 import 'package:shopease/widgets/category_card.dart';
 
 class CategoryPage extends StatelessWidget {
