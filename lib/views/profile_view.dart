@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/utils.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/order_history_view.dart';
 import 'package:shopease/views/settings_page.dart';
@@ -29,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -41,6 +40,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+
+        leading: IconButton(
+          onPressed: (){
+            Get.back();
+        }, 
+          icon: Icon(Icons.arrow_back),
+          ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),

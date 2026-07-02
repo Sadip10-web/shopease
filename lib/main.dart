@@ -4,6 +4,8 @@ import 'package:shopease/controller/app_controller.dart';
 import 'package:shopease/translation/app_translation.dart';
 
 import 'package:shopease/views/Splashscreen.dart';
+import 'package:shopease/views/product_detail.dart';
+import 'package:shopease/views/profile_view.dart';
 
 void main() {
   final appController = AppController();
@@ -32,14 +34,16 @@ class MyApp extends StatelessWidget {
         fallbackLocale: const Locale('en', 'US'),
 
         theme: ThemeData(
-          useMaterial3: false,
+          useMaterial3: true,
+          colorScheme: ColorScheme.light(),
           scaffoldBackgroundColor: Colors.white,
         ),
 
         darkTheme: ThemeData(
           useMaterial3: false,
           brightness: Brightness.dark,
-          scaffoldBackgroundColor: const Color(0xFF121212),
+          // scaffoldBackgroundColor: const Color(0xFF121212),
+          scaffoldBackgroundColor: Colors.white,
         ),
 
         themeMode: controller.isDark.value ? ThemeMode.dark : ThemeMode.light,
