@@ -186,8 +186,9 @@ class _ProfileMenuTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      
       child: Card(
+        
         child: Padding(
           padding: const EdgeInsets.only(left: 15,right: 15,top: 20,bottom: 20),
           child: Row(
