@@ -283,6 +283,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               onPressed: () {},
               color: Colors.white,
             ),
+
+            Gap(10),
           ],
         ),
       ),
