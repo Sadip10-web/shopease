@@ -4,6 +4,8 @@ import 'package:shopease/controller/app_controller.dart';
 import 'package:shopease/settings_page.dart';
 import 'package:shopease/translation/app_translation.dart';
 
+import 'package:shopease/views/Splashscreen.dart';
+
 void main() {
   final appController = AppController();
   Get.put(appController);
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
 
         themeMode: controller.isDark.value ? ThemeMode.dark : ThemeMode.light,
 
-        home: const SettingsPage(),
+        home: const Splashscreen(),
       ),
     );
   }

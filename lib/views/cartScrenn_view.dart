@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:shopease/views/wishlist_view.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/payment_screen.dart';
 
 class Cartscreenview extends StatefulWidget {
   const Cartscreenview({super.key});
@@ -11,15 +12,14 @@ class Cartscreenview extends StatefulWidget {
 class _CartscreenviewState extends State<Cartscreenview> {
   Widget cartSummary() {
     return Container(
-      // height: 80,
-      padding: EdgeInsets.only(left: 30, right: 10, top: 5, bottom: 5),
+      padding: const EdgeInsets.all(16),
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 2,
-            offset: Offset(0, -1),
+            blurRadius: 10,
+            offset: Offset(0, -2),
           ),
         ],
       ),
@@ -38,14 +38,14 @@ class _CartscreenviewState extends State<Cartscreenview> {
                         "Total: ",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 18,
                         ),
                       ),
                       Text(
                         "Rs. ${getTotalPrice().toStringAsFixed(0)}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                          fontSize: 18,
                           color: Colors.orange,
                         ),
                       ),
@@ -68,7 +68,9 @@ class _CartscreenviewState extends State<Cartscreenview> {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => PaymentScreen());
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 87, 7, 236),
                   padding: const EdgeInsets.symmetric(
@@ -239,124 +241,115 @@ class _CartscreenviewState extends State<Cartscreenview> {
     required String oldPrice,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5, right: 20),
+      padding: const EdgeInsets.only(top: 10, right: 20, left: 8),
       child: Row(
         children: [
-          Transform.scale(
-            scale: 0.7, // Smaller than default
-            child: Checkbox(
-              value: isChecked[index],
-              onChanged: (value) {
-                setState(() => isChecked[index] = value!);
-              },
-              shape: const CircleBorder(),
-              activeColor: const Color(0xFF6D28FF),
-              checkColor: Colors.white,
-            ),
+          Checkbox(
+            value: isChecked[index],
+            onChanged: (value) {
+              setState(() => isChecked[index] = value!);
+            },
+            shape: const CircleBorder(),
+            activeColor: const Color(0xFF6D28FF),
+            checkColor: Colors.white,
           ),
           Expanded(
-            child: Container(
-              height: 88,
-              padding: const EdgeInsets.only(top: 10, left: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow: const [
-                  BoxShadow(blurRadius: 5, color: Colors.black12),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network(
-                      imageUrl,
-                      width: 65,
-                      height: 65,
-                      fit: BoxFit.cover,
+            child: Card(
+              child: Container(
+                height: 110,
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(blurRadius: 5, color: Colors.black12),
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(
+                        imageUrl,
+                        width: 70,
+                        height: 70,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 15),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          productName,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          shopName,
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12,
-                          ),
-                        ),
-                        const Spacer(),
-                        Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Rs. ${products[index]["currentPrice"]}",
-                                  style: const TextStyle(
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                Text(
-                                  "Rs. ${products[index]["oldPrice"]}",
-                                  style: const TextStyle(
-                                    color: Colors.red,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            productName,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
                             ),
-                            const Spacer(),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (quantity[index] > 1)
-                                        quantity[index]--;
-                                    });
-                                  },
-                                  icon: const Icon(
-                                    Icons.indeterminate_check_box_outlined,
-                                    size: 18,
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            shopName,
+                            style: const TextStyle(color: Colors.grey),
+                          ),
+                          const Spacer(),
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Rs. ${products[index]["currentPrice"]}",
+                                    style: const TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  quantity[index].toString(),
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    setState(() => quantity[index]++);
-                                  },
-                                  icon: const Icon(
-                                    Icons.add_box_outlined,
-                                    size: 18,
+                                  Text(
+                                    "Rs. ${products[index]["oldPrice"]}",
+                                    style: const TextStyle(
+                                      color: Colors.red,
+                                      decoration: TextDecoration.lineThrough,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                                ],
+                              ),
+                              const Spacer(),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        if (quantity[index] > 1) {
+                                          quantity[index]--;
+                                        }
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.indeterminate_check_box_outlined,
+                                    ),
+                                  ),
+                                  Text(
+                                    quantity[index].toString(),
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(() => quantity[index]++);
+                                    },
+                                    icon: const Icon(Icons.add_box_outlined),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

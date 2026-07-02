@@ -21,7 +21,7 @@ class WishlistCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -66,7 +66,7 @@ class WishlistCard extends StatelessWidget {
             currentPrice,
             style: const TextStyle(
               color: Colors.green,
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -77,7 +77,7 @@ class WishlistCard extends StatelessWidget {
             oldPrice,
             style: const TextStyle(
               color: Colors.grey,
-              fontSize: 13,
+              fontSize: 12,
               decoration: TextDecoration.lineThrough,
             ),
           ),

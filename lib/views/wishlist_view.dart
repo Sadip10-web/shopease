@@ -1,4 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:shopease/views/product_detail.dart';
+import 'package:shopease/widgets/bottomNavigationBar.dart';
 import 'package:shopease/widgets/wishlist_card.dart';
 
 class Wishlistview extends StatefulWidget {
@@ -159,33 +165,46 @@ class _WishlistviewState extends State<Wishlistview> {
               itemCount: wishlist.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 15,
-                childAspectRatio: 0.70,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 10,
+                childAspectRatio: 0.90,
               ),
               itemBuilder: (context, index) {
-                return WishlistCard(
-                  imageUrl: wishlist[index]["image"],
-                  productName: wishlist[index]["name"],
-                  currentPrice: wishlist[index]["price"],
-                  oldPrice: wishlist[index]["oldPrice"],
-                  isFavorite: wishlist[index]["isFavorite"],
-                  onFavoriteTap: () {
-                    setState(() {
-                      wishlist[index]["isFavorite"] =
-                          !wishlist[index]["isFavorite"];
-
-                      if (!wishlist[index]["isFavorite"]) {
-                        wishlist.removeAt(index);
-                      }
-                    });
+                return GestureDetector(
+                  onTap: () {
+                    Get.to(() => ProductDetail());
                   },
+                  child: WishlistCard(
+                    imageUrl: wishlist[index]["image"],
+                    productName: wishlist[index]["name"],
+                    currentPrice: wishlist[index]["price"],
+                    oldPrice: wishlist[index]["oldPrice"],
+                    isFavorite: wishlist[index]["isFavorite"],
+                    onFavoriteTap: () {
+                      setState(() {
+                        wishlist[index]["isFavorite"] =
+                            !wishlist[index]["isFavorite"];
+
+                        if (!wishlist[index]["isFavorite"]) {
+                          wishlist.removeAt(index);
+                        }
+                      });
+                    },
+                  ),
                 );
               },
             ),
           ),
+
+          Gap(80),
         ],
       ),
+
+      // buttom navigation bar added by Pankaj
+      extendBody: true,
+      bottomNavigationBar: ButtomNavigationBar(),
+
+      // navigation bar ends here
     );
   }
 }

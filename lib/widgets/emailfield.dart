@@ -8,12 +8,14 @@ class EmailField extends StatelessWidget {
   final String text;
   final String hintText;
   final IconData icon;
+  final TextInputType? keyboardType;
 
     const EmailField({
     super.key,
     required this.text,
     required this.hintText,
     required this.icon,
+    this.keyboardType,
   });
 
   @override
@@ -57,7 +59,7 @@ class EmailField extends StatelessWidget {
                 borderSide: BorderSide(color: Color(0xffE5E7EB)),
               ),
             ),
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: keyboardType,
           ),
           
           Gap(30),

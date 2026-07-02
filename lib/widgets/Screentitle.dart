@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 
 class ScreenTitle extends StatelessWidget {
   final String text;
@@ -18,10 +20,15 @@ class ScreenTitle extends StatelessWidget {
           Gap(35),
           
           // back icon
-          Icon(
-            Icons.arrow_back, 
-            size: 28, 
-            color: Colors.black
+          InkWell(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back, 
+              size: 28, 
+              color: Colors.black
+            ),
           ),
           
           Gap(25),
