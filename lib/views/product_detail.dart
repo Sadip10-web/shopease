@@ -54,7 +54,7 @@ class _ProductDetailState extends State<ProductDetail> {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back),
         ),
         title: const Text(
           "Details",
@@ -97,18 +97,25 @@ class _ProductDetailState extends State<ProductDetail> {
           child: Column(
             children: [
               imageSlider(),
-              const Gap(15),
+              Gap(15),
               fourImages(),
+              Gap(15),
               productTitle(),
+              Gap(5),
               price(),
               Divider(color: Colors.grey.shade200),
               description(),
-              const Gap(15),
+              Gap(15),
               sizeSelector(),
+              Gap(15),
               colorSelector(),
+              Gap(5),
               Divider(color: Colors.grey.shade200),
+              Gap(5),
               deliveryInfo(),
+              Gap(5),
               Divider(color: Colors.grey.shade200),
+              Gap(5),
               bottomBar(),
             ],
           ),
@@ -164,7 +171,7 @@ class _ProductDetailState extends State<ProductDetail> {
 
   Widget slideBar() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 13),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(images.length, (index) {
@@ -186,42 +193,210 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   Widget fourImages() {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: SizedBox(
-        height: 80,
-        child: Row(
-          children: List.generate(images.length, (index) {
-            final bool isSelected = index == currentImageIndex;
+    return SizedBox(
+      height: 80,
+      child: Row(
+        children: List.generate(images.length, (index) {
+          final bool isSelected = index == currentImageIndex;
+          return Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4),
+              child: GestureDetector(
+                onTap: () {
+                  pageController.animateToPage(
+                    index,
+                    duration: Duration(microseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF3F1FB),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: isSelected
+                          ? Color(0xFF6D28FF)
+                          : Colors.transparent,
+                      width: 2,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      images[index],
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
+  Widget productTitle() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Product_Name",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 2),
+            Text(
+              "Sub_title",
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+          ],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.star, color: Colors.amber, size: 18),
+                SizedBox(width: 4),
+                Text(
+                  "4.6",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              ],
+            ),
+            const SizedBox(height: 2),
+            Text(
+              "(128 reviews)",
+              style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget price() {
+    return Row(
+      children: [
+        const Text(
+          "Rs. 5,399",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF6D28FF),
+          ),
+        ),
+        const SizedBox(width: 10),
+        Text(
+          "Rs. 6,000",
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.grey.shade400,
+            decoration: TextDecoration.lineThrough,
+          ),
+        ),
+        const SizedBox(width: 10),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFFE3E3),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: const Text(
+            "10% OFF",
+            style: TextStyle(
+              fontSize: 11,
+              color: Color(0xFFE05A5A),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget description() {
+    const String description =
+        "The morning breeze drifted through the quiet streets as the city slowly came to life. People hurried toward their destinations, carrying hopes, plans, and the promise of a new day.";
+
+    return RichText(
+      text: TextSpan(
+        style: TextStyle(
+          color: Colors.grey.shade600,
+          fontSize: 15,
+          height: 1.5,
+        ),
+        children: [
+          TextSpan(
+            text: isDescriptionExpanded
+                ? description
+                : "${description.substring(0, 90)}...",
+          ),
+          TextSpan(
+            text: isDescriptionExpanded ? " Read less" : " Read more",
+            style: const TextStyle(
+              color: Color(0xFF6D28FF),
+              fontWeight: FontWeight.w600,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                setState(() {
+                  isDescriptionExpanded = !isDescriptionExpanded;
+                });
+              },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget sizeSelector() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Size",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: List.generate(sizes.length, (index) {
+            final bool isSelected = index == selectedSizeIndex;
+    
             return Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: GestureDetector(
                   onTap: () {
-                    pageController.animateToPage(
-                      index,
-                      duration: Duration(microseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
+                    setState(() {
+                      selectedSizeIndex = index;
+                    });
                   },
                   child: Container(
+                    width: 44,
+                    height: 44,
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF3F1FB),
+                      color: isSelected
+                          ? const Color(0xFF6D28FF)
+                          : const Color(0xFFF3F1FB),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: isSelected
-                            ? Color(0xFF6D28FF)
-                            : Colors.transparent,
-                        width: 2,
-                      ),
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        images[index],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
+                    child: Text(
+                      sizes[index],
+                      style: TextStyle(
+                        color: isSelected ? Colors.white : Colors.black87,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -230,271 +405,80 @@ class _ProductDetailState extends State<ProductDetail> {
             );
           }),
         ),
-      ),
-    );
-  }
-
-  Widget productTitle() {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Product_Name",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 2),
-              Text(
-                "Sub_title",
-                style: TextStyle(fontSize: 14, color: Colors.grey),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Row(
-                children: [
-                  Icon(Icons.star, color: Colors.amber, size: 18),
-                  SizedBox(width: 4),
-                  Text(
-                    "4.6",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 2),
-              Text(
-                "(128 reviews)",
-                style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget price() {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Row(
-        children: [
-          const Text(
-            "Rs. 5,399",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF6D28FF),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Text(
-            "Rs. 6,000",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.grey.shade400,
-              decoration: TextDecoration.lineThrough,
-            ),
-          ),
-          const SizedBox(width: 10),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: BoxDecoration(
-              color: const Color(0xFFFFE3E3),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Text(
-              "10% OFF",
-              style: TextStyle(
-                fontSize: 11,
-                color: Color(0xFFE05A5A),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget description() {
-    const String description =
-        "The morning breeze drifted through the quiet streets as the city slowly came to life. People hurried toward their destinations, carrying hopes, plans, and the promise of a new day.";
-
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: RichText(
-        text: TextSpan(
-          style: TextStyle(
-            color: Colors.grey.shade600,
-            fontSize: 15,
-            height: 1.5,
-          ),
-          children: [
-            TextSpan(
-              text: isDescriptionExpanded
-                  ? description
-                  : "${description.substring(0, 90)}...",
-            ),
-            TextSpan(
-              text: isDescriptionExpanded ? " Read less" : " Read more",
-              style: const TextStyle(
-                color: Color(0xFF6D28FF),
-                fontWeight: FontWeight.w600,
-              ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  setState(() {
-                    isDescriptionExpanded = !isDescriptionExpanded;
-                  });
-                },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget sizeSelector() {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Size",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: List.generate(sizes.length, (index) {
-              final bool isSelected = index == selectedSizeIndex;
-
-              return Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedSizeIndex = index;
-                      });
-                    },
-                    child: Container(
-                      width: 44,
-                      height: 44,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: isSelected
-                            ? const Color(0xFF6D28FF)
-                            : const Color(0xFFF3F1FB),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Text(
-                        sizes[index],
-                        style: TextStyle(
-                          color: isSelected ? Colors.white : Colors.black87,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }),
-          ),
-        ],
-      ),
+      ],
     );
   }
 
   Widget colorSelector() {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Color',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Color',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
           ),
-          const SizedBox(height: 12),
-          Row(
-            children: List.generate(colorOptions.length, (index) {
-              final bool isSelected = index == selectedColorIndex;
-
-              return Padding(
-                padding: const EdgeInsets.only(right: 14),
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedColorIndex = index;
-                    });
-                  },
-                  child: Container(
-                    width: 32,
-                    height: 32,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: colorOptions[index],
-                      border: Border.all(
-                        color: isSelected
-                            ? const Color(0xFF6D28FF)
-                            : Colors.grey.shade400,
-                        width: isSelected ? 2 : 1,
-                      ),
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: List.generate(colorOptions.length, (index) {
+            final bool isSelected = index == selectedColorIndex;
+    
+            return Padding(
+              padding: const EdgeInsets.only(right: 14),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedColorIndex = index;
+                  });
+                },
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: colorOptions[index],
+                    border: Border.all(
+                      color: isSelected
+                          ? const Color(0xFF6D28FF)
+                          : Colors.grey.shade400,
+                      width: isSelected ? 2 : 1,
                     ),
                   ),
                 ),
-              );
-            }),
-          ),
-        ],
-      ),
+              ),
+            );
+          }),
+        ),
+      ],
     );
   }
 
   Widget deliveryInfo() {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Row(
-        children: [
-          infoItem(
-            Icons.local_shipping_outlined,
-            "Free Delivery",
-            "Inside Valley\n2-3 days",
-          ),
-          const Spacer(),
-          infoItem(
-            Icons.verified_outlined,
-            "100% original",
-            "Authentic\nProducts",
-          ),
-          const Spacer(),
-          infoItem(Icons.cached, "Easy Returns", "within 7 days\nof delivery"),
-        ],
-      ),
+    return Row(
+      children: [
+        infoItem(
+          Icons.local_shipping_outlined,
+          "Free Delivery",
+          "Inside Valley\n2-3 days",
+        ),
+        Spacer(),
+        infoItem(
+          Icons.verified_outlined,
+          "100% original",
+          "Authentic\nProducts",
+        ),
+        Spacer(),
+        infoItem(Icons.cached, "Easy Returns", "within 7 days\nof delivery"),
+      ],
     );
   }
 
   Widget bottomBar() {
     return Container(
-      padding: const EdgeInsets.fromLTRB(20, 14, 20, 24),
       decoration: BoxDecoration(
-        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
