@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'package:shopease/controller/app_controller.dart';
 
-import 'change_password.dart';
+import 'change_password2.dart';
 import 'privacy_policy.dart';
 import 'terms_conditions.dart';
 

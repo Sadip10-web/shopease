@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/controller/app_controller.dart';
-import 'package:shopease/settings_page.dart';
 import 'package:shopease/translation/app_translation.dart';
 
 import 'package:shopease/views/Splashscreen.dart';
