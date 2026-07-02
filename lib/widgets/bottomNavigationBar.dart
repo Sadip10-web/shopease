@@ -7,6 +7,7 @@ import 'package:shopease/views/cartScrenn_view.dart';
 import 'package:shopease/views/category_view.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/profile_view.dart';
 import 'package:shopease/views/wishlist_view.dart';
 
 class ButtomNavigationBar extends StatelessWidget {
@@ -82,7 +83,7 @@ class ButtomNavigationBar extends StatelessWidget {
           ),
           Spacer(),
           GestureDetector(
-            onTap: () => Get.to(() => EditProfileScreen()),
+            onTap: () => Get.to(() => ProfileScreen()),
             child: Icon(
               Icons.person_outline,
               size: 35,
