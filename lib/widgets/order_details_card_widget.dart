@@ -87,7 +87,6 @@ class OrderDetailsCardWidget extends StatelessWidget {
     );
   }
 }
-
 //orderInfo
 class OrderInfoCard extends StatelessWidget {
   final String orderId;
@@ -149,7 +148,6 @@ class OrderInfoCard extends StatelessWidget {
     );
   }
 }
-
 //address
 class DeliveryAddressCard extends StatelessWidget {
   final String receiverName;
@@ -373,6 +371,76 @@ class PriceDetailsCard extends StatelessWidget {
         ],
       ),
     );
+  } 
+}
+
+class OrderTrackingCard extends StatelessWidget {
+  final String trackingMessage;
+  final VoidCallback onTap;
+  const OrderTrackingCard({
+    super.key,
+    required this.trackingMessage,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius:
+          BorderRadius.circular(30),
+      child: Container(
+        margin:
+            const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 12,
+        ),
+        padding:
+            const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 14,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius:
+              BorderRadius.circular(30),
+          border: Border.all(
+            color:
+                const Color(0xFF7B2CF5),
+          ),
+        ),
+        child: Row(
+          children: [
+            // Tracking Icon
+            const Icon(
+              Icons
+                  .local_shipping_outlined,
+              color:
+                  Color(0xFF7B2CF5),
+            ),
+            const SizedBox(width: 12),
+            // Tracking Message
+            Expanded(
+              child: Text(
+                trackingMessage,
+                style:
+                    const TextStyle(
+                  fontSize: 16,
+                  fontWeight:
+                      FontWeight.w500,
+                ),
+              ),
+            ),
+            // Arrow Icon
+            const Icon(
+              Icons.arrow_forward_ios,
+              size: 18,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
+
 
