@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/product_detail.dart';
 import 'package:shopease/widgets/bottomNavigationBar.dart';
@@ -194,6 +195,8 @@ class _WishlistviewState extends State<Wishlistview> {
               },
             ),
           ),
+
+          Gap(80),
         ],
       ),
 

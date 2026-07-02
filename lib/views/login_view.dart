@@ -75,8 +75,9 @@ class LoginView extends StatelessWidget {
               buttonText: "Login", 
               backgroundColor:  Color(0xFF6D28FF),
               onPressed: () {
-                Get.to(() => HomeScreen());
-              }, color: Colors.white,
+                Get.offAll(() => HomeScreen());
+              }, 
+              color: Colors.white,
             ),
           
               Gap(25),

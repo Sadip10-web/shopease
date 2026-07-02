@@ -1,173 +1,232 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopease/controller/app_controller.dart';
-import 'package:shopease/views/change_password.dart';
 
+import 'package:shopease/controller/app_controller.dart';
+
+import 'change_password2.dart';
 import 'privacy_policy.dart';
 import 'terms_conditions.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
+  static const Color primary = Color(0xFF6C3EF4);
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<AppController>();
 
-    final screenWidth = MediaQuery.of(context).size.width;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
 
-    double contentWidth;
+        final bool mobile = screenWidth < 600;
+        final bool tablet = screenWidth >= 600 && screenWidth < 900;
+        final bool desktop = screenWidth >= 900;
 
-    if (screenWidth < 600) {
-      // Mobile
-      contentWidth = screenWidth - 24;
-    } else if (screenWidth < 900) {
-      // Tablet
-      contentWidth = screenWidth * 0.75;
-    } else {
-      // Laptop/Desktop
-      contentWidth = screenWidth * 0.45;
+        double contentWidth;
 
-      // Prevent it from becoming too wide
-      if (contentWidth > 650) {
-        contentWidth = 650;
-      }
-    }
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: SafeArea(
-        child: Center(
-          child: SizedBox(
-            width: contentWidth,
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth < 600 ? 12 : 24,
-                vertical: 20,
-              ),
-              child: Column(
-                children: [
-                  /// HEADER
-                  Row(
+        if (mobile) {
+          contentWidth = screenWidth - 24;
+        } else if (tablet) {
+          contentWidth = screenWidth * .88;
+        } else if (screenWidth < 1400) {
+          contentWidth = screenWidth * .78;
+        } else {
+          contentWidth = 1100;
+        }
+
+        return Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+          body: SafeArea(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: contentWidth),
+
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: mobile ? 14 : 28,
+                    vertical: mobile ? 18 : 26,
+                  ),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
                     children: [
-                      InkWell(
-                        borderRadius: BorderRadius.circular(30),
-                        onTap: () => Navigator.pop(context),
-                        child: Container(
-                          width: 46,
-                          height: 46,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: .05),
-                                blurRadius: 10,
-                              ),
-                            ],
-                          ),
-                          child: const Icon(Icons.arrow_back),
-                        ),
-                      ),
+                      //------------------------------------
+                      // HEADER
+                      //------------------------------------
+                      Row(
+                        children: [
+                          InkWell(
+                            borderRadius: BorderRadius.circular(50),
 
-                      Expanded(
-                        child: Center(
-                          child: Text(
-                            "settings".tr,
-                            style: TextStyle(
-                              fontSize: screenWidth < 600 ? 24 : 30,
-                              fontWeight: FontWeight.bold,
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+
+                            child: Container(
+                              width: mobile ? 48 : 56,
+
+                              height: mobile ? 48 : 56,
+
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+
+                                color: Theme.of(context).cardColor,
+
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withValues(alpha: .06),
+
+                                    blurRadius: 16,
+
+                                    offset: const Offset(0, 6),
+                                  ),
+                                ],
+                              ),
+
+                              child: Icon(
+                                Icons.arrow_back,
+
+                                size: mobile ? 24 : 28,
+                              ),
                             ),
                           ),
-                        ),
-                      ),
 
-                      const SizedBox(width: 46),
-                    ],
-                  ),
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "settings".tr,
 
-                  const SizedBox(height: 35),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
 
-                  /// SETTINGS CARD
-                  Obx(
-                    () => buildCard(
-                      context,
-                      child: Column(
-                        children: [
-                          buildSwitchTile(
-                            Icons.dark_mode_outlined,
-                            "dark".tr,
-                            controller.isDark.value,
-                            controller.changeTheme,
+                                  fontSize: mobile ? 30 : 38,
+                                ),
+                              ),
+                            ),
                           ),
 
-                          divider(),
-
-                          buildSwitchTile(
-                            Icons.notifications_outlined,
-                            "notification".tr,
-                            controller.notification.value,
-                            controller.changeNotification,
-                          ),
-
-                          divider(),
-
-                          buildLanguage(context, controller),
+                          SizedBox(width: mobile ? 48 : 56),
                         ],
                       ),
-                    ),
+
+                      SizedBox(height: mobile ? 28 : 42),
+
+                      //------------------------------------
+                      // SETTINGS CARD
+                      //------------------------------------
+                      Obx(
+                        () => _buildCard(
+                          context,
+
+                          child: Column(
+                            children: [
+                              _buildSwitchTile(
+                                context: context,
+
+                                icon: Icons.dark_mode_outlined,
+
+                                title: "dark".tr,
+
+                                value: controller.isDark.value,
+
+                                onChanged: controller.changeTheme,
+
+                                mobile: mobile,
+                              ),
+
+                              _divider(),
+
+                              _buildSwitchTile(
+                                context: context,
+
+                                icon: Icons.notifications_outlined,
+
+                                title: "notification".tr,
+
+                                value: controller.notification.value,
+
+                                onChanged: controller.changeNotification,
+
+                                mobile: mobile,
+                              ),
+
+                              _divider(),
+
+                              _buildLanguageTile(context, controller, mobile),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(height: mobile ? 26 : 34),
+
+                      //------------------------------------
+                      // ABOUT CARD
+                      //------------------------------------
+                      _buildCard(
+                        context,
+                        child: Column(
+                          children: [
+                            _buildNavigationTile(
+                              context: context,
+                              icon: Icons.lock_outline_rounded,
+                              title: "change_password".tr,
+                              page: const ChangePasswordScreen(),
+                              mobile: mobile,
+                            ),
+
+                            _divider(),
+
+                            _buildNavigationTile(
+                              context: context,
+                              icon: Icons.privacy_tip_outlined,
+                              title: "privacy".tr,
+                              page: const PrivacyPolicyPage(),
+                              mobile: mobile,
+                            ),
+
+                            _divider(),
+
+                            _buildNavigationTile(
+                              context: context,
+                              icon: Icons.description_outlined,
+                              title: "terms".tr,
+                              page: const TermsConditionsPage(),
+                              mobile: mobile,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-
-                  const SizedBox(height: 30),
-
-                  /// ABOUT CARD
-                  buildCard(
-                    context,
-                    child: Column(
-                      children: [
-                        buildNav(
-                          context,
-                          Icons.lock_outline,
-                          "change_password".tr,
-                          const ChangePasswordScreen(),
-                        ),
-
-                        divider(),
-
-                        buildNav(
-                          context,
-                          Icons.privacy_tip_outlined,
-                          "privacy".tr,
-                          const PrivacyPolicyPage(),
-                        ),
-
-                        divider(),
-
-                        buildNav(
-                          context,
-                          Icons.description_outlined,
-                          "terms".tr,
-                          const TermsConditionsPage(),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
-  Widget buildCard(BuildContext context, {required Widget child}) {
-    return Container(
+  //-------------------------------------------------
+  // CARD
+  //-------------------------------------------------
+
+  Widget _buildCard(BuildContext context, {required Widget child}) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 250),
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: .06),
-            blurRadius: 18,
+            blurRadius: 22,
             offset: const Offset(0, 8),
           ),
         ],
@@ -176,44 +235,53 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  Widget divider() {
+  //-------------------------------------------------
+  // DIVIDER
+  //-------------------------------------------------
+
+  Widget _divider() {
     return const Padding(
       padding: EdgeInsets.only(left: 82),
       child: Divider(height: 1),
     );
   }
 
-  /// SWITCH TILE
-  Widget buildSwitchTile(
-    IconData icon,
-    String title,
-    bool value,
-    ValueChanged<bool> onChanged,
-  ) {
+  //-------------------------------------------------
+  // SWITCH TILE
+  //-------------------------------------------------
+
+  Widget _buildSwitchTile({
+    required BuildContext context,
+    required IconData icon,
+    required String title,
+    required bool value,
+    required ValueChanged<bool> onChanged,
+    required bool mobile,
+  }) {
     return SizedBox(
-      height: 76,
+      height: mobile ? 76 : 84,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        padding: EdgeInsets.symmetric(horizontal: mobile ? 18 : 24),
         child: Row(
           children: [
             Container(
-              width: 48,
-              height: 48,
+              width: mobile ? 50 : 58,
+              height: mobile ? 50 : 58,
               decoration: const BoxDecoration(
                 color: Color(0xFFF4EEFF),
                 shape: BoxShape.circle,
               ),
-              child: Icon(icon, color: const Color(0xFF6C3EF4), size: 24),
+              child: Icon(icon, color: primary, size: mobile ? 25 : 30),
             ),
 
-            const SizedBox(width: 16),
+            SizedBox(width: mobile ? 18 : 22),
 
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                style: TextStyle(
+                  fontSize: mobile ? 18 : 22,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -221,24 +289,24 @@ class SettingsPage extends StatelessWidget {
             GestureDetector(
               onTap: () => onChanged(!value),
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
-                width: 44,
-                height: 26,
+                duration: const Duration(milliseconds: 220),
+                curve: Curves.easeInOut,
+                width: 42,
+                height: 24,
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: value
-                      ? const Color(0xFF6C3EF4)
-                      : const Color(0xFFD9D9D9),
-                  borderRadius: BorderRadius.circular(30),
+                  color: value ? primary : const Color(0xFFD8D8D8),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: AnimatedAlign(
-                  duration: const Duration(milliseconds: 250),
+                  duration: const Duration(milliseconds: 220),
+                  curve: Curves.easeInOut,
                   alignment: value
                       ? Alignment.centerRight
                       : Alignment.centerLeft,
                   child: Container(
-                    width: 22,
-                    height: 22,
+                    width: 20,
+                    height: 20,
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
@@ -253,72 +321,65 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  /// LANGUAGE
-  /// LANGUAGE
-  Widget buildLanguage(BuildContext context, AppController controller) {
+  //-------------------------------------------------
+  // LANGUAGE TILE
+  //-------------------------------------------------
+
+  Widget _buildLanguageTile(
+    BuildContext context,
+    AppController controller,
+    bool mobile,
+  ) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final screenWidth = MediaQuery.of(context).size.width;
 
     return SizedBox(
-      height: 76,
+      height: mobile ? 76 : 84,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        padding: EdgeInsets.symmetric(horizontal: mobile ? 18 : 24),
         child: Row(
           children: [
             Container(
-              width: 48,
-              height: 48,
+              width: mobile ? 50 : 58,
+              height: mobile ? 50 : 58,
               decoration: const BoxDecoration(
                 color: Color(0xFFF4EEFF),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.language_outlined,
-                color: Color(0xFF6C3EF4),
-                size: 24,
+                color: primary,
+                size: mobile ? 25 : 30,
               ),
             ),
 
-            const SizedBox(width: 16),
+            SizedBox(width: mobile ? 18 : 22),
 
             Expanded(
               child: Text(
                 "language".tr,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                style: TextStyle(
+                  fontSize: mobile ? 18 : 22,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
 
             Container(
-              width: screenWidth < 600 ? 120 : 160,
-              height: 42,
+              width: mobile ? 130 : 170,
+              height: mobile ? 42 : 48,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
-                color: isDark ? const Color(0xFF4A4A4A) : Colors.white,
+                color: isDark ? Colors.grey.shade800 : Colors.white,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: isDark ? Colors.white24 : const Color(0xFFE0E0E0),
-                ),
+                border: Border.all(color: Colors.grey.shade300),
               ),
               child: Obx(
                 () => DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: controller.language.value,
                     isExpanded: true,
-                    dropdownColor: isDark
-                        ? const Color(0xFF4A4A4A)
-                        : Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: isDark ? Colors.white : Colors.black,
-                    ),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: isDark ? Colors.white : Colors.black,
-                    ),
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    dropdownColor: isDark ? Colors.grey.shade900 : Colors.white,
                     items: const [
                       DropdownMenuItem(
                         value: "English",
@@ -340,54 +401,56 @@ class SettingsPage extends StatelessWidget {
       ),
     );
   }
+  //-------------------------------------------------
+  // NAVIGATION TILE
+  //-------------------------------------------------
 
-  /// NAVIGATION
-  Widget buildNav(
-    BuildContext context,
-    IconData icon,
-    String title,
-    Widget page,
-  ) {
+  Widget _buildNavigationTile({
+    required BuildContext context,
+    required IconData icon,
+    required String title,
+    required Widget page,
+    required bool mobile,
+  }) {
     return InkWell(
       borderRadius: BorderRadius.circular(20),
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (_) => page));
       },
-      child: SizedBox(
-        height: 76,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Row(
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFF4EEFF),
-                  shape: BoxShape.circle,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        height: mobile ? 76 : 84,
+        padding: EdgeInsets.symmetric(horizontal: mobile ? 18 : 24),
+        child: Row(
+          children: [
+            Container(
+              width: mobile ? 50 : 58,
+              height: mobile ? 50 : 58,
+              decoration: const BoxDecoration(
+                color: Color(0xFFF4EEFF),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(icon, color: primary, size: mobile ? 25 : 30),
+            ),
+
+            SizedBox(width: mobile ? 18 : 22),
+
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: mobile ? 18 : 22,
+                  fontWeight: FontWeight.w600,
                 ),
-                child: Icon(icon, color: const Color(0xFF6C3EF4), size: 24),
               ),
+            ),
 
-              const SizedBox(width: 16),
-
-              Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-
-              const Icon(
-                Icons.chevron_right_rounded,
-                color: Colors.grey,
-                size: 26,
-              ),
-            ],
-          ),
+            Icon(
+              Icons.chevron_right_rounded,
+              size: mobile ? 28 : 34,
+              color: Colors.grey.shade500,
+            ),
+          ],
         ),
       ),
     );
