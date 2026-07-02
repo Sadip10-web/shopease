@@ -66,7 +66,7 @@ class ProductCard extends StatelessWidget {
                 ),
 
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerRight,
                   child: Text(
                     newPrice,
                     style: const TextStyle(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/views/cartScrenn_view.dart';
 import 'package:shopease/views/order_details_view.dart';
-import 'package:shopease/views/homescreen.dart';
+import 'package:shopease/views/profile_view.dart';
 import 'package:shopease/widgets/order_card_widget.dart';
 
 class OrderHistoryView extends StatelessWidget {
@@ -20,7 +20,7 @@ class OrderHistoryView extends StatelessWidget {
 
     leading: IconButton(
       onPressed: () {
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() => const ProfileScreen());
       },
       icon: const Icon(
         Icons.arrow_back, color: Colors.black,size: 28,
