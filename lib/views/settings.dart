@@ -50,7 +50,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     trailing: Switch(
                       value: widget.isDarkMode,
-                      activeColor: Colors.deepPurple,
+                      activeThumbColor: Colors.deepPurple,
                       onChanged: (value) {
                         widget.onThemeChanged(value);
                       },
@@ -72,7 +72,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     trailing: Switch(
                       value: notifications,
-                      activeColor: Colors.deepPurple,
+                      activeThumbColor: Colors.deepPurple,
                       onChanged: (value) {
                         setState(() {
                           notifications = value;
