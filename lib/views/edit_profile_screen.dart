@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shopease/widgets/button_widget.dart';
-import 'package:shopease/widgets/emailfield.dart';
+import 'package:shopease/widgets/fillUp_widget.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -11,6 +13,70 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  File? selectedImage;
+  final ImagePicker picker = ImagePicker();
+
+  Future<void> showImageOptions() async {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (_) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  "Change Profile Picture",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                ),
+
+                const SizedBox(height: 18),
+
+                ListTile(
+                  leading: const Icon(
+                    Icons.camera_alt,
+                    color: Color(0xFF6D28FF),
+                  ),
+                  title: const Text("Take Photo"),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: const Icon(
+                    Icons.photo_library,
+                    color: Color(0xFF6D28FF),
+                  ),
+                  title: const Text("Choose from Gallery"),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: const Icon(Icons.cancel, color: Colors.red),
+                  title: const Text(
+                    "Cancel",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,28 +97,30 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
       ),
-
-
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             //ProfileAvatar
             Center(
               child: Column(
                 children: [
                   Stack(
                     children: [
-                      CircleAvatar(
-                        radius: 75,
-                        backgroundColor: Color(0xFF6D28FF),
-                        child: Icon(
-                          Icons.account_circle_sharp,
-                          size: 150,
-                          color: Color.fromARGB(255, 124, 196, 218),
+                      InkWell(
+                        onTap: () {
+                          // Handle photo change action
+                        },
+                        child: CircleAvatar(
+                          radius: 75,
+                          backgroundColor: Color(0xFF6D28FF),
+                          child: Icon(
+                            Icons.account_circle_sharp,
+                            size: 150,
+                            color: Color.fromARGB(255, 124, 196, 218),
+                          ),
                         ),
                       ),
                       Positioned(
@@ -65,22 +133,34 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             shape: BoxShape.circle,
                             border: Border.all(color: Colors.white, width: 3),
                           ),
-                          child: Icon(
-                            Icons.camera_alt,
-                            color: Colors.white,
-                            size: 24,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.camera_alt,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                            onPressed: () {
+                              showImageOptions();
+                              // Handle camera icon press action
+                            },
                           ),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: 12),
-                  Text(
-                    "Change Photo",
-                    style: TextStyle(
-                      color: Color(0xFF6D28FF),
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
+                  InkWell(
+                    onTap: () {
+                      showImageOptions();
+                      // Handle photo change action
+                    },
+                    child: Text(
+                      "Change Photo",
+                      style: TextStyle(
+                        color: Color(0xFF6D28FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
@@ -90,62 +170,117 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             // Name
             Gap(12),
     
-            // Name
-            EmailField(
-              text: "Name",
-              hintText: "John Doe",
+            Text(
+              "Name",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff5B6475),
+              ),
+            ),
+            FillupWidget(
               icon: Icons.person,
               keyboardType: TextInputType.text,
+              hintText: 'John Doe',
             ),
     
+            Gap(30),
     
             //Email
-            EmailField(
-              text: "Email",
-              hintText: "john@gmail.com",
+            Text(
+              "Email",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff5B6475),
+              ),
+            ),
+            Gap(12),
+            FillupWidget(
               icon: Icons.email,
               keyboardType: TextInputType.emailAddress,
+              hintText: 'john@gmail.com',
             ),
     
-            // phone number
-            EmailField(
-              text: "Phone Number",
-              hintText: "+977 9800000000",
+            //PhoneNumber
+            Gap(30),
+    
+            Text(
+              "Phone Number",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff5B6475),
+              ),
+            ),
+            Gap(8),
+            FillupWidget(
               icon: Icons.phone,
               keyboardType: TextInputType.number,
+              hintText: '+977 980000000',
             ),
+    
+            Gap(30),
     
             //DOB
-            EmailField(
-              text: "Date of Birth",
-              hintText: "Jan 01, 1995",
+            Text(
+              "Date of Birth",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff5B6475),
+              ),
+            ),
+            Gap(8),
+            FillupWidget(
               icon: Icons.date_range,
               keyboardType: TextInputType.datetime,
+              hintText: 'Jan 01, 1995',
             ),
+    
+            Gap(30),
     
             //Gender
-            EmailField(
-              text: "Gender",
-              hintText: "Male",
+            Text(
+              "Gender",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff5B6475),
+              ),
+            ),
+            Gap(8),
+            FillupWidget(
               icon: Icons.person,
               keyboardType: TextInputType.text,
+              hintText: 'Male',
             ),
     
+            Gap(30),
+    
             //Address
-            EmailField(
-              text: "Address",
-              hintText: "Pokhara, Kaski",
+            Text(
+              "Address",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff5B6475),
+              ),
+            ),
+            Gap(8),
+            FillupWidget(
               icon: Icons.location_on,
               keyboardType: TextInputType.text,
+              hintText: 'Pokhara, Kaski',
             ),
+    
+            Gap(30),
     
             //Button
             ButtonWidget(
               buttonText: "Save Changes",
               backgroundColor: Color(0xFF6D28FF),
-              onPressed: () {
-    
-              },
+              onPressed: () {},
               color: Colors.white,
             ),
           ],
