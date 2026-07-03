@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shopease/models/order_tracking_step.dart';
-import 'package:shopease/widgets/custom_top_bar.dart';
 import 'package:shopease/widgets/order_tracking_caard_widget.dart';
-
 
 class OrderTrackingView extends StatelessWidget {
   const OrderTrackingView({super.key});
@@ -10,9 +9,37 @@ class OrderTrackingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomTopBar(
-        title: "Order Tracking",
+      
+       backgroundColor: Colors.white,
+
+  appBar: AppBar(
+    backgroundColor: Colors.white,
+    surfaceTintColor: Colors.white,
+    elevation: 0,
+    centerTitle: true,
+
+    leading: IconButton(
+      onPressed: () {
+        Get.back(); // or Get.off(() => const HomeView());
+      },
+      icon: const Icon(
+        Icons.arrow_back,
+        color: Colors.black,
+        size: 28,
       ),
+    ),
+
+    title: const Text(
+      "Order Tracking",
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 28,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+
+  
+  ),
       body: SingleChildScrollView(
         child: Column(
           children: [
