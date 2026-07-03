@@ -35,10 +35,10 @@ class ButtonWidget extends StatelessWidget {
               
             ),
             onPressed: onPressed,
-            icon: Icon(
-              icon,
-              color: iconColor,
-            ),
+            //icon: Icon(
+             // icon,
+            //  color: iconColor,
+            //),
             label: Text(
               buttonText,
               style: TextStyle(

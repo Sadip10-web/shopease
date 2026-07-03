@@ -237,7 +237,7 @@ class _OrderSuccessScreenState extends State<OrderSuccessScreen> {
                                   ),
                                 ),
                                 onPressed: (){
-                                  Get.offAll(() => OrderHistoryView());
+                                  Get.to(() => OrderHistoryView());
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
