@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/controller/app_controller.dart';
-import 'package:shopease/views/changepassword_screen.dart';
-
-
-
+import 'change_password2.dart';
 import 'privacy_policy.dart';
 import 'terms_conditions.dart';
 

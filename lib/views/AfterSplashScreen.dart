@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/utils.dart';
+import 'package:get/get.dart';
 import 'package:shopease/views/login_view.dart';
 import 'package:shopease/views/register_view.dart';
 import 'package:shopease/widgets/button_widget.dart';
@@ -32,11 +31,17 @@ class Aftersplashscreen extends StatelessWidget {
                   Gap(15),
                   Image.asset("assets/images/Splashimage.png",height: 150,),
                   Gap(20),
-                  ButtonWidget(buttonText: "Log In", backgroundColor: Color.fromARGB(255, 253, 252, 253), onPressed: (){Get.to(()=>LoginView());
-                  }, color: Color(0xFF6D28FF),),
+                  ButtonWidget(buttonText: "Log In",
+                                backgroundColor: Color.fromARGB(255, 253, 252, 253),
+                                onPressed: (){Get.to(()=>LoginView(),
+                                transition: Transition.rightToLeftWithFade);
+                  },
+                   color: Color(0xFF6D28FF),
+                   ),
                   Gap(20),
                   ButtonWidget(buttonText: "Sign Up", backgroundColor: const Color.fromARGB(255, 254, 255, 253), onPressed: (){
-                    Get.to(()=>RegisterView());
+                    Get.to(()=>RegisterView(),
+                    transition: Transition.rightToLeftWithFade);
                   }, color: Color(0xFF6D28FF),),
               ],
             ),

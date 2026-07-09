@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 
     return Obx(
       () => GetMaterialApp(
+        defaultTransition: Transition.rightToLeftWithFade,
         debugShowCheckedModeBanner: false,
 
         translations: AppTranslation(),
