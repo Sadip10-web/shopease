@@ -5,6 +5,7 @@ import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/order_history_view.dart';
 import 'package:shopease/views/settings_page.dart';
 import 'package:shopease/views/wishlist_view.dart';
+import 'package:shopease/widgets/bottomNavigationBar.dart';
 
 // Brand colors reused from the rest of the app (see EditProfileScreen).
 const Color kPrimaryPurple = Color(0xFF6D28FF);
@@ -140,9 +141,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               labelColor: Colors.red,
               onTap: () => _confirmLogout(context),
             ),
+          
           ],
+          
         ),
+        
       ),
+      extendBody: true,
+      bottomNavigationBar: ButtomNavigationBar(),
     );
   }
 
