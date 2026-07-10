@@ -348,7 +348,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             ),
                           ],
                         ),
-                      ),
+                      ), 
 
                       SizedBox(height: isSmall ? 24 : 34),
 

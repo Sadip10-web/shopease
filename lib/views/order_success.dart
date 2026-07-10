@@ -279,7 +279,8 @@ class _OrderSuccessScreenState extends State<OrderSuccessScreen> {
                                   ),
                                 ),
                                 onPressed: (){
-                                  Get.off(() => HomeScreen());
+                                  Get.offAll(() => HomeScreen(),
+                                  transition: Transition.rightToLeftWithFade);
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
