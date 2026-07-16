@@ -1,9 +1,8 @@
 // views/category_view
 
 import 'package:dio/dio.dart';
-
-import 'package:shopease/contr
-import 'package:shopease/services/category_service.dart';
+import 'package:shopease/controller/category_controller.dart';
+import 'package:shopease/service/category_service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,21 +19,7 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  bool _isLoading = false;
-  String? _errorMessage;
-
-  final List<CategoryModel> _categories = const [
-    CategoryModel(
-      id: 1,
-      name: 'Electronics',
-      imageUrl: null,
-      productCount: 125,
-    ),
-    CategoryModel(id: 2, name: 'Fashion', imageUrl: null, productCount: 89),
-    CategoryModel(id: 3, name: 'Grocery', imageUrl: null, productCount: 64),
-    CategoryModel(id: 4, name: 'Sports', imageUrl: null, productCount: 48),
-    CategoryModel(id: 5, name: 'Beauty', imageUrl: null, productCount: 37),
-  ];
+  late final CategoryController controller;
 
   final List<String> _fallbackAssets = const [
     'assets/images/electronics.png',
@@ -56,40 +41,7 @@ class _CategoryPageState extends State<CategoryPage> {
   void initState() {
     super.initState();
 
-    // Call _loadCategories() when your API service is ready.
-  }
-
-  Future<void> _loadCategories() async {
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
-
-    try {
-      // Backend:
-      // GET /api/categories
-      //
-      // Expected top-level shape:
-      // {
-      //   "success": true,
-      //   "message": "Categories retrieved",
-      //   "data": [...]
-      // }
-
-      await Future<void>.delayed(const Duration(milliseconds: 500));
-    } catch (_) {
-      if (!mounted) return;
-
-      setState(() {
-        _errorMessage = 'Unable to load categories. Please try again.';
-      });
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    }
+    controller = Get.put(CategoryController(CategoryService(Dio())));
   }
 
   void _openSearch() {
@@ -109,9 +61,12 @@ class _CategoryPageState extends State<CategoryPage> {
       transition: Transition.rightToLeft,
       duration: const Duration(milliseconds: 250),
     );
+  }
 
-    // Alternative backend endpoint:
-    // GET /api/categories/${category.id}/products
+  @override
+  void dispose() {
+    Get.delete<CategoryController>();
+    super.dispose();
   }
 
   @override
@@ -155,7 +110,7 @@ class _CategoryPageState extends State<CategoryPage> {
             };
 
             return RefreshIndicator(
-              onRefresh: _loadCategories,
+              onRefresh: controller.loadCategories,
               child: CustomScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 slivers: [
@@ -189,25 +144,32 @@ class _CategoryPageState extends State<CategoryPage> {
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              if (_isLoading)
-                                const SizedBox(
-                                  height: 260,
-                                  child: Center(
-                                    child: CircularProgressIndicator(),
-                                  ),
-                                )
-                              else if (_errorMessage != null)
-                                _CategoryErrorState(
-                                  message: _errorMessage!,
-                                  onRetry: _loadCategories,
-                                )
-                              else if (_categories.isEmpty)
-                                const _EmptyCategoryState()
-                              else
-                                GridView.builder(
+
+                              Obx(() {
+                                if (controller.isLoading.value) {
+                                  return const SizedBox(
+                                    height: 260,
+                                    child: Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
+                                  );
+                                }
+
+                                if (controller.error.value != null) {
+                                  return _CategoryErrorState(
+                                    message: controller.error.value!,
+                                    onRetry: controller.loadCategories,
+                                  );
+                                }
+
+                                if (controller.categories.isEmpty) {
+                                  return const _EmptyCategoryState();
+                                }
+
+                                return GridView.builder(
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: _categories.length,
+                                  itemCount: controller.categories.length,
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: crossAxisCount,
@@ -218,7 +180,8 @@ class _CategoryPageState extends State<CategoryPage> {
                                             : 0.95,
                                       ),
                                   itemBuilder: (context, index) {
-                                    final category = _categories[index];
+                                    final category =
+                                        controller.categories[index];
 
                                     final backgroundColor = isDark
                                         ? theme
@@ -240,7 +203,8 @@ class _CategoryPageState extends State<CategoryPage> {
                                       },
                                     );
                                   },
-                                ),
+                                );
+                              }),
                             ],
                           ),
                         ),
@@ -257,33 +221,8 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 }
 
-class _CategoryErrorState extends StatelessWidget {
-  final String message;
-  final VoidCallback onRetry;
-
-  const _CategoryErrorState({required this.message, required this.onRetry});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 50),
-        child: Column(
-          children: [
-            const Icon(Icons.cloud_off_rounded, size: 52),
-            const SizedBox(height: 12),
-            Text(message, textAlign: TextAlign.center),
-            const SizedBox(height: 16),
-            FilledButton(onPressed: onRetry, child: const Text('Try again')),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class _EmptyCategoryState extends StatelessWidget {
-  const _EmptyCategoryState();
+  const _EmptyCategoryState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -291,6 +230,7 @@ class _EmptyCategoryState extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 60),
       child: Center(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.category_outlined, size: 56),
             SizedBox(height: 12),
