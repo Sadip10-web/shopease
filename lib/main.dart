@@ -1,17 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-<<<<<<< HEAD
-import 'package:shopease/controller/app_controller.dart';
-import 'package:shopease/translation/app_translation.dart';
-
-import 'package:shopease/views/Splashscreen.dart';
-
-void main() {
-  final appController = AppController();
-  Get.put(appController);
-
-  runApp(const MyApp());
-=======
 import 'package:shopease/bindings/initial_binding.dart';
 import 'package:shopease/controller/app_controller.dart';
 import 'package:shopease/translation/app_translation.dart';
@@ -27,7 +15,6 @@ void main() {
   );
 
   runApp(const ShopEaseApp());
->>>>>>> main
 }
 
 class ShopEaseApp extends StatelessWidget {
@@ -40,14 +27,9 @@ class ShopEaseApp extends StatelessWidget {
     return Obx(
       () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-
-        translations: AppTranslation(),
-=======
         title: 'ShopEase',
 
         translations: AppTranslations(),
->>>>>>> main
 
         locale: controller.language.value == 'Nepali'
             ? const Locale('ne', 'NP')
@@ -55,20 +37,6 @@ class ShopEaseApp extends StatelessWidget {
 
         fallbackLocale: const Locale('en', 'US'),
 
-<<<<<<< HEAD
-        theme: ThemeData(
-          useMaterial3: false,
-          scaffoldBackgroundColor: Colors.white,
-        ),
-
-        darkTheme: ThemeData(
-          useMaterial3: false,
-          brightness: Brightness.dark,
-          scaffoldBackgroundColor: const Color(0xFF121212),
-        ),
-
-        themeMode: controller.isDark.value ? ThemeMode.dark : ThemeMode.light,
-=======
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: controller.isDark.value
@@ -76,7 +44,6 @@ class ShopEaseApp extends StatelessWidget {
             : ThemeMode.light,
 
         initialBinding: InitialBinding(),
->>>>>>> main
 
         home: const Splashscreen(),
       ),

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-// TODO Implement this library.
-=======
 // // TODO Implement this library.
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
@@ -79,7 +76,6 @@
 // }
 
 
->>>>>>> main
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
