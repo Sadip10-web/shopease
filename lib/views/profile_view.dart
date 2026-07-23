@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 import 'package:gap/gap.dart';
 import 'package:shopease/views/edit_profile_screen.dart';
 import 'package:shopease/views/settings.dart';
@@ -17,8 +18,47 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   // ---- Dummy/placeholder user data ----
   // TODO: replace with real data from GET /profile once the API is ready.
-  final String userName = "John Doe";
-  final String userEmail = "john@gmail.com";
+ String userName = "Loading...";
+String userEmail = "Loading...";
+bool isLoading = true;
+
+// TODO: replace this hardcoded token with the real saved login token
+// once Login actually calls the API and stores one (e.g. via GetStorage).
+final String _testToken = "PASTE_YOUR_TEST_TOKEN_HERE";
+
+Future<void> fetchProfile() async {
+  try {
+    final dio = Dio();
+    final response = await dio.get(
+      'http://127.0.0.1:8000/api/profile',
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer $_testToken',
+        },
+      ),
+    );
+
+    final data = response.data['data'];
+    setState(() {
+      userName = data['name'] ?? "Unknown";
+      userEmail = data['email'] ?? "Unknown";
+      isLoading = false;
+    });
+  } catch (e) {
+    setState(() {
+      userName = "Error loading profile";
+      userEmail = "";
+      isLoading = false;
+    });
+    debugPrint("Profile fetch failed: $e");
+  }
+}
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProfile();
+  }
 
   @override
   Widget build(BuildContext context) {
