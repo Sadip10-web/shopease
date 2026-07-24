@@ -1,3 +1,5 @@
+// category_view
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/controller/category_controller.dart';
@@ -135,7 +137,7 @@ class CategoryPage extends StatelessWidget {
 
                                     return CategoryCard(
                                       title: category.name,
-                                      imageUrl: category.imageUrl,
+                                      icon: category.icon,
                                       assetImage:
                                           index <
                                               controller.fallbackAssets.length

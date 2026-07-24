@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:shopease/service/search_product_service.dart';
+import 'package:shopease/services/search_product_service.dart';
 
 import '../models/search_product_model.dart';
 // import '../services/search_product_service.dart';

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/controller/search_product_controller.dart';
-import 'package:shopease/service/search_product_service.dart';
+import 'package:shopease/services/search_product_service.dart';
 import '../widgets/product_card.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -104,7 +104,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   return ProductCard(
                     productId: product.id,
                     productTitle: product.name,
-                    imageUrl: product.imageUrl,
+                    image: product.imageUrl,
                     newPrice: product.price.toString(),
                     oldPrice: product.originalPrice?.toString(),
                   );

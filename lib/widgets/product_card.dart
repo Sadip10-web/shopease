@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final int productId;
-  final String imageUrl;
+  final String? image;
   final String productTitle;
   final String? oldPrice;
   final String newPrice;
@@ -14,7 +14,7 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
     required this.productId,
-    required this.imageUrl,
+    required this.image,
     required this.newPrice,
     required this.productTitle,
     this.oldPrice,
@@ -46,27 +46,37 @@ class ProductCard extends StatelessWidget {
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
-                    Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                      loadingBuilder: (context, child, progress) {
-                        if (progress == null) return child;
+                    if (image != null && image!.isNotEmpty)
+                      Image.network(
+                        image!,
+                        fit: BoxFit.cover,
+                        loadingBuilder: (context, child, progress) {
+                          if (progress == null) return child;
 
-                        return const Center(
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        );
-                      },
-                      errorBuilder: (_, __, ___) {
-                        return ColoredBox(
-                          color: theme.colorScheme.surfaceContainerHighest,
-                          child: Icon(
-                            Icons.image_not_supported_outlined,
-                            color: theme.colorScheme.onSurfaceVariant,
-                            size: 40,
-                          ),
-                        );
-                      },
-                    ),
+                          return const Center(
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          );
+                        },
+                        errorBuilder: (_, __, ___) {
+                          return ColoredBox(
+                            color: theme.colorScheme.surfaceContainerHighest,
+                            child: Icon(
+                              Icons.image_not_supported_outlined,
+                              color: theme.colorScheme.onSurfaceVariant,
+                              size: 40,
+                            ),
+                          );
+                        },
+                      )
+                    else
+                      ColoredBox(
+                        color: theme.colorScheme.surfaceContainerHighest,
+                        child: Icon(
+                          Icons.image_not_supported_outlined,
+                          color: theme.colorScheme.onSurfaceVariant,
+                          size: 40,
+                        ),
+                      ),
                     Positioned(
                       top: 8,
                       right: 8,

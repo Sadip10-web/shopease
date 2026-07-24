@@ -1,7 +1,10 @@
+// category_controller
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopease/models/category_model.dart';
-import 'package:shopease/service/category_service.dart';
+import 'package:shopease/services/category_service.dart';
+import 'package:shopease/views/category_products_page.dart';
 
 import 'package:shopease/views/search_screen.dart';
 
@@ -17,9 +20,9 @@ class CategoryController extends GetxController {
   final List<String> fallbackAssets = const [
     'assets/images/electronics.png',
     'assets/images/fashion.png',
-    'assets/images/grocery.png',
+    'assets/images/books.png',
+    'assets/images/home.png',
     'assets/images/sports.png',
-    'assets/images/beauty.png',
   ];
 
   final List<Color> lightCardColors = const [
@@ -60,9 +63,9 @@ class CategoryController extends GetxController {
 
   void openCategory(CategoryModel category) {
     Get.to(
-      () => SearchScreen(
-        initialCategoryId: category.id,
-        initialCategoryName: category.name,
+      () => CategoryProductsPage(
+        categoryId: category.id,
+        categoryName: category.name,
       ),
       transition: Transition.rightToLeft,
       duration: const Duration(milliseconds: 250),

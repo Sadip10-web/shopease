@@ -31,31 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
   final Set<int> _favoriteProductIds = <int>{};
 
   final List<_CategoryItem> _categories = const [
-    _CategoryItem(
-      id: null,
-      label: 'All',
-      icon: Icons.travel_explore_rounded,
-    ),
-    _CategoryItem(
-      id: 1,
-      label: 'Fashion',
-      icon: Icons.checkroom_rounded,
-    ),
-    _CategoryItem(
-      id: 2,
-      label: 'Wearables',
-      icon: Icons.watch_rounded,
-    ),
-    _CategoryItem(
-      id: 3,
-      label: 'Shoes',
-      icon: Icons.directions_run_rounded,
-    ),
-    _CategoryItem(
-      id: 4,
-      label: 'Smartphones',
-      icon: Icons.smartphone_rounded,
-    ),
+    _CategoryItem(id: null, label: 'All', icon: Icons.travel_explore_rounded),
+    _CategoryItem(id: 1, label: 'Fashion', icon: Icons.checkroom_rounded),
+    _CategoryItem(id: 2, label: 'Wearables', icon: Icons.watch_rounded),
+    _CategoryItem(id: 3, label: 'Shoes', icon: Icons.directions_run_rounded),
+    _CategoryItem(id: 4, label: 'Smartphones', icon: Icons.smartphone_rounded),
   ];
 
   final List<_FeaturedItem> _featuredItems = const [
@@ -350,15 +330,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: width < 420 ? 170 : 195,
                                 child: ProductCard(
                                   productId: product.id,
-                                  imageUrl: product.imageUrl,
+                                  image: product.imageUrl,
                                   oldPrice: product.oldPrice,
                                   newPrice: product.newPrice,
                                   productTitle: product.title,
                                   isFavorite: _favoriteProductIds.contains(
                                     product.id,
                                   ),
-                                  onTap: () =>
-                                      _openProductDetails(product.id),
+                                  onTap: () => _openProductDetails(product.id),
                                   onFavoritePressed: () =>
                                       _toggleFavorite(product.id),
                                 ),
@@ -474,9 +453,7 @@ class _HomeHeader extends StatelessWidget {
             onPressed: onThemePressed,
             tooltip: isDarkMode ? 'Use light mode' : 'Use dark mode',
             icon: Icon(
-              isDarkMode
-                  ? Icons.light_mode_rounded
-                  : Icons.dark_mode_rounded,
+              isDarkMode ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
               color: isDarkMode ? Colors.amber : AppTheme.primary,
             ),
           ),
@@ -578,11 +555,10 @@ class _ResponsiveProductGrid extends StatelessWidget {
     final columns = availableWidth >= 1050
         ? 4
         : availableWidth >= 720
-            ? 3
-            : 2;
+        ? 3
+        : 2;
     const spacing = 14.0;
-    final itemWidth =
-        (availableWidth - spacing * (columns - 1)) / columns;
+    final itemWidth = (availableWidth - spacing * (columns - 1)) / columns;
 
     return Wrap(
       spacing: spacing,
@@ -592,7 +568,7 @@ class _ResponsiveProductGrid extends StatelessWidget {
           width: itemWidth,
           child: ProductCard(
             productId: product.id,
-            imageUrl: product.imageUrl,
+            image: product.imageUrl,
             oldPrice: product.oldPrice,
             newPrice: product.newPrice,
             productTitle: product.title,
