@@ -13,9 +13,7 @@ class SearchProductModel {
     this.originalPrice,
   });
 
-  factory SearchProductModel.fromJson(
-    Map<String, dynamic> json,
-  ) {
+  factory SearchProductModel.fromJson(Map<String, dynamic> json) {
     final images = json['images'];
 
     String imageUrl = '';
@@ -39,20 +37,13 @@ class SearchProductModel {
 
     return SearchProductModel(
       id: _parseInt(json['id']),
-      name:
-          json['name']?.toString() ??
-          json['title']?.toString() ??
-          'Product',
+      name: json['name']?.toString() ?? json['title']?.toString() ?? 'Product',
       imageUrl: imageUrl,
       price: _parseNum(
-        json['price'] ??
-            json['sale_price'] ??
-            json['current_price'],
+        json['price'] ?? json['sale_price'] ?? json['current_price'],
       ),
       originalPrice: _parseNullableNum(
-        json['original_price'] ??
-            json['old_price'] ??
-            json['regular_price'],
+        json['original_price'] ?? json['old_price'] ?? json['regular_price'],
       ),
     );
   }

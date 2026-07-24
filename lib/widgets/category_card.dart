@@ -76,7 +76,6 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -112,9 +111,7 @@ class CategoryCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: theme.colorScheme.outlineVariant.withValues(
-                alpha: 0.45,
-              ),
+              color: theme.colorScheme.outlineVariant.withValues(alpha: 0.45),
             ),
             boxShadow: [
               BoxShadow(
@@ -127,11 +124,7 @@ class CategoryCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Center(
-                  child: _buildImage(context),
-                ),
-              ),
+              Expanded(child: Center(child: _buildImage(context))),
               const SizedBox(height: 10),
               Text(
                 title,
@@ -161,9 +154,7 @@ class CategoryCard extends StatelessWidget {
                     width: 30,
                     height: 30,
                     decoration: BoxDecoration(
-                      color: theme.colorScheme.surface.withValues(
-                        alpha: 0.9,
-                      ),
+                      color: theme.colorScheme.surface.withValues(alpha: 0.9),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -191,18 +182,10 @@ class CategoryCard extends StatelessWidget {
         errorBuilder: (_, __, ___) {
           return _fallbackIcon(theme);
         },
-        loadingBuilder: (
-          context,
-          child,
-          loadingProgress,
-        ) {
+        loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
 
-          return const Center(
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-            ),
-          );
+          return const Center(child: CircularProgressIndicator(strokeWidth: 2));
         },
       );
     }

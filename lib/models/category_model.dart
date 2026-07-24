@@ -14,13 +14,8 @@ class CategoryModel {
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
     return CategoryModel(
       id: _parseInt(json['id']),
-      name:
-          json['name']?.toString() ??
-          json['title']?.toString() ??
-          'Category',
-      imageUrl:
-          json['image_url']?.toString() ??
-          json['image']?.toString(),
+      name: json['name']?.toString() ?? json['title']?.toString() ?? 'Category',
+      imageUrl: json['image_url']?.toString() ?? json['image']?.toString(),
       productCount: _parseInt(
         json['products_count'] ??
             json['product_count'] ??
