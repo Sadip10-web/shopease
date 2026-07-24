@@ -525,7 +525,7 @@ class SettingsPage extends StatelessWidget {
 
                                 icon: Icons.notifications_outlined,
 
-                                title: "notification".tr,
+                                title: "Notification".tr,
 
                                 value: controller.notification.value,
 
@@ -554,7 +554,7 @@ class SettingsPage extends StatelessWidget {
                             _buildNavigationTile(
                               context: context,
                               icon: Icons.lock_outline_rounded,
-                              title: "change_password".tr,
+                              title: "Change password".tr,
                               page: const ChangePasswordScreen(),
                               mobile: mobile,
                             ),
@@ -564,7 +564,7 @@ class SettingsPage extends StatelessWidget {
                             _buildNavigationTile(
                               context: context,
                               icon: Icons.privacy_tip_outlined,
-                              title: "privacy".tr,
+                              title: "Privacy".tr,
                               page: const PrivacyPolicyPage(),
                               mobile: mobile,
                             ),
@@ -574,7 +574,7 @@ class SettingsPage extends StatelessWidget {
                             _buildNavigationTile(
                               context: context,
                               icon: Icons.description_outlined,
-                              title: "terms".tr,
+                              title: "Terms".tr,
                               page: const TermsConditionsPage(),
                               mobile: mobile,
                             ),
@@ -736,7 +736,7 @@ class SettingsPage extends StatelessWidget {
 
             Expanded(
               child: Text(
-                "language".tr,
+                "Language".tr,
                 style: TextStyle(
                   fontSize: mobile ? 18 : 22,
                   fontWeight: FontWeight.w600,
@@ -835,7 +835,7 @@ class SettingsPage extends StatelessWidget {
                           children: [
                             _SettingsSwitchTile(
                               icon: Icons.dark_mode_outlined,
-                              title: 'dark'.tr,
+                              title: 'Dark'.tr,
                               subtitle: 'Use the dark application theme',
                               value: controller.isDark.value,
                               onChanged: controller.changeTheme,
@@ -843,7 +843,7 @@ class SettingsPage extends StatelessWidget {
                             const _SettingsDivider(),
                             _SettingsSwitchTile(
                               icon: Icons.notifications_outlined,
-                              title: 'notification'.tr,
+                              title: 'Notification'.tr,
                               subtitle:
                                   'Receive order and account notifications',
                               value: controller.notification.value,
